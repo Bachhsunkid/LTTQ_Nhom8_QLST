@@ -56,7 +56,6 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Validator.cs" />
     <Compile Include="PageThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
