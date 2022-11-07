@@ -36,5 +36,10 @@ namespace Nhom8_BTL_QLST
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

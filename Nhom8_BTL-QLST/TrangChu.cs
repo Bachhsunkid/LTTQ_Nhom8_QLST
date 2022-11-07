@@ -7,10 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DotNetBrowser;
 using System.Windows.Forms;
-using DotNetBrowser.Browser;
-using DotNetBrowser.Engine;
 
 
 namespace Nhom8_BTL_QLST
@@ -158,6 +155,11 @@ namespace Nhom8_BTL_QLST
         }
 
         private void btnLienHe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
         {
 
         }

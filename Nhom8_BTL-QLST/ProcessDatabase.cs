@@ -16,7 +16,10 @@ namespace Nhom8_BTL_QLST
         }
 
         SqlConnection conn;
-        string strConn = "Data Source=DESKTOP-A8FKSRA\\ADMIN;Initial Catalog=DESKTOP-A8FKSRA\\SQLEXPRESS;User Id=myUsername;Password=myPassword;";
+        //Bach string connection
+        string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //Ngoc string connection
+        //string strConn = "";
         public void ketNoi()
         {
 

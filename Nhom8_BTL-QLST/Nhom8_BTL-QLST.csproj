@@ -56,12 +56,7 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="PageLienHe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PageLienHe.Designer.cs">
-      <DependentUpon>PageLienHe.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Validator.cs" />
     <Compile Include="PageThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,9 +98,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PageLienHe.resx">
-      <DependentUpon>PageLienHe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageThongKe.resx">
       <DependentUpon>PageThongKe.cs</DependentUpon>
@@ -219,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

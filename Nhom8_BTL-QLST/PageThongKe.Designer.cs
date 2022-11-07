@@ -65,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -250,6 +251,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.groupBox2);
@@ -264,7 +266,7 @@
             // 
             this.button4.Image = global::Nhom8_BTL_QLST.Properties.Resources.refresh1;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(717, 95);
+            this.button4.Location = new System.Drawing.Point(537, 100);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 36);
             this.button4.TabIndex = 5;
@@ -276,7 +278,7 @@
             // 
             this.button3.Image = global::Nhom8_BTL_QLST.Properties.Resources.magnifying_glass1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(537, 95);
+            this.button3.Location = new System.Drawing.Point(674, 100);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(156, 36);
             this.button3.TabIndex = 7;
@@ -402,6 +404,18 @@
             this.dataGridView1.Size = new System.Drawing.Size(1040, 637);
             this.dataGridView1.TabIndex = 3;
             // 
+            // button7
+            // 
+            this.button7.Image = global::Nhom8_BTL_QLST.Properties.Resources.excel;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(869, 100);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(110, 36);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "Xuất Excel";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // PageThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -462,5 +476,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button7;
     }
 }

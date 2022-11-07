@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,6 +68,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -91,6 +93,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thêm nhân viên";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button3
             // 
@@ -282,6 +285,18 @@
             this.dgvNhanVien.Size = new System.Drawing.Size(1422, 648);
             this.dgvNhanVien.TabIndex = 0;
             // 
+            // button7
+            // 
+            this.button7.Image = global::Nhom8_BTL_QLST.Properties.Resources.excel;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(1179, 96);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(110, 36);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Xuất Excel";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // PageNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -322,5 +337,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button7;
     }
 }
