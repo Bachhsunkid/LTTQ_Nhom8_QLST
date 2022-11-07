@@ -1,0 +1,11 @@
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\bin\Debug\test.exe.config
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\bin\Debug\test.exe
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\bin\Debug\test.pdb
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.AssemblyReference.cache
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.SuggestedBindingRedirects.cache
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.Form1.resources
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.Properties.Resources.resources
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.GenerateResource.cache
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.exe
+D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.pdb
