@@ -105,7 +105,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(170, 692);
             this.panel1.TabIndex = 0;
@@ -115,7 +115,7 @@
             this.pictureBox9.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox9.Image = global::Nhom8_BTL_QLST.Properties.Resources.donation;
             this.pictureBox9.Location = new System.Drawing.Point(15, 505);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(23, 26);
             this.pictureBox9.TabIndex = 9;
@@ -126,7 +126,7 @@
             this.pictureBox8.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox8.Image = global::Nhom8_BTL_QLST.Properties.Resources.phone;
             this.pictureBox8.Location = new System.Drawing.Point(15, 440);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(23, 26);
             this.pictureBox8.TabIndex = 8;
@@ -137,7 +137,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox7.Image = global::Nhom8_BTL_QLST.Properties.Resources.monkey;
             this.pictureBox7.Location = new System.Drawing.Point(15, 306);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(23, 26);
             this.pictureBox7.TabIndex = 7;
@@ -148,7 +148,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox6.Image = global::Nhom8_BTL_QLST.Properties.Resources.report;
             this.pictureBox6.Location = new System.Drawing.Point(15, 370);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(23, 26);
             this.pictureBox6.TabIndex = 6;
@@ -159,7 +159,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox5.Image = global::Nhom8_BTL_QLST.Properties.Resources.penguin;
             this.pictureBox5.Location = new System.Drawing.Point(15, 239);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(23, 26);
             this.pictureBox5.TabIndex = 5;
@@ -170,7 +170,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox4.Image = global::Nhom8_BTL_QLST.Properties.Resources.team;
             this.pictureBox4.Location = new System.Drawing.Point(15, 172);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 26);
             this.pictureBox4.TabIndex = 4;
@@ -181,7 +181,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox3.Image = global::Nhom8_BTL_QLST.Properties.Resources.house;
             this.pictureBox3.Location = new System.Drawing.Point(15, 107);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(23, 26);
             this.pictureBox3.TabIndex = 3;
@@ -189,6 +189,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(22, 669);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -202,7 +203,7 @@
             this.btnDonte.BackColor = System.Drawing.Color.AliceBlue;
             this.btnDonte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonte.Location = new System.Drawing.Point(-1, 488);
-            this.btnDonte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDonte.Margin = new System.Windows.Forms.Padding(2);
             this.btnDonte.Name = "btnDonte";
             this.btnDonte.Size = new System.Drawing.Size(169, 62);
             this.btnDonte.TabIndex = 7;
@@ -215,7 +216,7 @@
             this.btnLienHe.BackColor = System.Drawing.Color.AliceBlue;
             this.btnLienHe.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLienHe.Location = new System.Drawing.Point(0, 421);
-            this.btnLienHe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLienHe.Margin = new System.Windows.Forms.Padding(2);
             this.btnLienHe.Name = "btnLienHe";
             this.btnLienHe.Size = new System.Drawing.Size(169, 62);
             this.btnLienHe.TabIndex = 6;
@@ -229,7 +230,7 @@
             this.btnBaoCao.BackColor = System.Drawing.Color.AliceBlue;
             this.btnBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBaoCao.Location = new System.Drawing.Point(-1, 354);
-            this.btnBaoCao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBaoCao.Margin = new System.Windows.Forms.Padding(2);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Size = new System.Drawing.Size(169, 62);
             this.btnBaoCao.TabIndex = 5;
@@ -243,7 +244,7 @@
             this.btnChuong.BackColor = System.Drawing.Color.AliceBlue;
             this.btnChuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChuong.Location = new System.Drawing.Point(0, 288);
-            this.btnChuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChuong.Margin = new System.Windows.Forms.Padding(2);
             this.btnChuong.Name = "btnChuong";
             this.btnChuong.Size = new System.Drawing.Size(169, 62);
             this.btnChuong.TabIndex = 4;
@@ -257,7 +258,7 @@
             this.btnThu.BackColor = System.Drawing.Color.AliceBlue;
             this.btnThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThu.Location = new System.Drawing.Point(0, 221);
-            this.btnThu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThu.Margin = new System.Windows.Forms.Padding(2);
             this.btnThu.Name = "btnThu";
             this.btnThu.Size = new System.Drawing.Size(169, 62);
             this.btnThu.TabIndex = 3;
@@ -271,7 +272,7 @@
             this.btnNhanSu.BackColor = System.Drawing.Color.AliceBlue;
             this.btnNhanSu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhanSu.Location = new System.Drawing.Point(0, 154);
-            this.btnNhanSu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNhanSu.Margin = new System.Windows.Forms.Padding(2);
             this.btnNhanSu.Name = "btnNhanSu";
             this.btnNhanSu.Size = new System.Drawing.Size(169, 62);
             this.btnNhanSu.TabIndex = 2;
@@ -285,7 +286,7 @@
             this.btnTrangChu.BackColor = System.Drawing.Color.AliceBlue;
             this.btnTrangChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangChu.Location = new System.Drawing.Point(2, 88);
-            this.btnTrangChu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTrangChu.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangChu.Name = "btnTrangChu";
             this.btnTrangChu.Size = new System.Drawing.Size(169, 62);
             this.btnTrangChu.TabIndex = 1;
@@ -299,7 +300,7 @@
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(168, 73);
             this.panel3.TabIndex = 0;
@@ -310,7 +311,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Nhom8_BTL_QLST.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(168, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -324,7 +325,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(172, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1065, 93);
             this.panel2.TabIndex = 1;
@@ -353,7 +354,7 @@
             this.pnFooter.Controls.Add(this.label1);
             this.pnFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnFooter.Location = new System.Drawing.Point(170, 640);
-            this.pnFooter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnFooter.Margin = new System.Windows.Forms.Padding(2);
             this.pnFooter.Name = "pnFooter";
             this.pnFooter.Size = new System.Drawing.Size(1066, 52);
             this.pnFooter.TabIndex = 2;
@@ -364,7 +365,7 @@
             // 
             this.button2.Image = global::Nhom8_BTL_QLST.Properties.Resources.next;
             this.button2.Location = new System.Drawing.Point(980, 12);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 24);
             this.button2.TabIndex = 2;
@@ -374,7 +375,7 @@
             // 
             this.button1.Image = global::Nhom8_BTL_QLST.Properties.Resources.previous;
             this.button1.Location = new System.Drawing.Point(944, 12);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 24);
             this.button1.TabIndex = 2;
@@ -390,7 +391,7 @@
             "100",
             "Tất cả bản ghi"});
             this.comboBox1.Location = new System.Drawing.Point(805, 15);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(122, 21);
             this.comboBox1.TabIndex = 1;
@@ -434,7 +435,7 @@
             this.panel5.Controls.Add(this.pnMain);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(170, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1066, 640);
             this.panel5.TabIndex = 3;
@@ -445,7 +446,7 @@
             this.pnMain.Controls.Add(this.panel6);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(1066, 640);
             this.pnMain.TabIndex = 1;
@@ -455,7 +456,7 @@
             this.panel8.Controls.Add(this.pictureBox2);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 76);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1066, 564);
             this.panel8.TabIndex = 1;
@@ -465,7 +466,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::Nhom8_BTL_QLST.Properties.Resources.zoobanner_1;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1066, 564);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -482,7 +483,7 @@
             this.panel6.Controls.Add(this.btnLogin);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1066, 76);
             this.panel6.TabIndex = 0;
@@ -492,7 +493,7 @@
             this.btnLogout.Image = global::Nhom8_BTL_QLST.Properties.Resources.login;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.Location = new System.Drawing.Point(970, 25);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(80, 28);
             this.btnLogout.TabIndex = 2;
@@ -519,7 +520,7 @@
             this.btnLogin.Image = global::Nhom8_BTL_QLST.Properties.Resources.logout;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(882, 25);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(84, 28);
             this.btnLogin.TabIndex = 1;
@@ -538,7 +539,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TrangChu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sở thú";
