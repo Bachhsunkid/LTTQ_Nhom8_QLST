@@ -17,9 +17,13 @@ namespace Nhom8_BTL_QLST
 
         SqlConnection conn;
         //Bach string connection
-        string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Ngoc string connection
-        //string strConn = "";
+        string strConn = "Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
+        public ProcessDatabase(string s)
+        {
+            conn = new SqlConnection(s);
+        }
         public void ketNoi()
         {
 
