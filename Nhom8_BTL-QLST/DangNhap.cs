@@ -17,7 +17,7 @@ namespace Nhom8_BTL_QLST
             InitializeComponent();
         }
 
-        ProcessDatabase database = new ProcessDatabase("Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=Taikhoan;Integrated Security=True");
+        ProcessDatabase database = new ProcessDatabase();
         private void button2_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

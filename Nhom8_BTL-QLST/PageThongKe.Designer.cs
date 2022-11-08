@@ -84,7 +84,7 @@
             this.flowLayoutPanel1.Controls.Add(this.listView1);
             this.flowLayoutPanel1.Controls.Add(this.chart1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(780, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(811, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(289, 642);
@@ -277,7 +277,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 124);
+            this.panel1.Size = new System.Drawing.Size(811, 124);
             this.panel1.TabIndex = 2;
             // 
             // button7
@@ -458,7 +458,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(780, 518);
+            this.dataGridView1.Size = new System.Drawing.Size(811, 518);
             this.dataGridView1.TabIndex = 3;
             // 
             // PageThongKe
@@ -470,7 +470,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PageThongKe";
-            this.Size = new System.Drawing.Size(1069, 642);
+            this.Size = new System.Drawing.Size(1100, 642);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

@@ -170,6 +170,14 @@ create table Thu_Chuong(
 	foreign key(MaThu) references Thu(MaThu),
 	foreign key(MaChuong) references Chuong(MaChuong)
 )
+create table Taikhoan(
+	username varchar(20),
+	pass varchar(20),
+	email varchar(50),
+	constraint pk_Taikhoan primary key (username)
+)
+
+insert into Taikhoan values('abc','123','ab@mm.mm')
 
 
 --insert thu_chuong
