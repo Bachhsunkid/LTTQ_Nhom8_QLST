@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.txtmatkhau = new System.Windows.Forms.TextBox();
             this.txttaikhoan = new System.Windows.Forms.TextBox();
+=======
+            this.label1 = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+>>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -61,6 +68,7 @@
             this.txtmatkhau.UseSystemPasswordChar = true;
             this.txtmatkhau.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtmatkhau_MouseClick);
             // 
+<<<<<<< HEAD
             // txttaikhoan
             // 
             this.txttaikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,6 +78,31 @@
             this.txttaikhoan.Size = new System.Drawing.Size(220, 26);
             this.txttaikhoan.TabIndex = 7;
             this.txttaikhoan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txttaikhoan_MouseClick);
+=======
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(161, 16);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(292, 22);
+            this.test.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mật khẩu";
+            // 
+            // textBox2
+            // 
+            this.textBox2.HideSelection = false;
+            this.textBox2.Location = new System.Drawing.Point(161, 56);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(292, 22);
+            this.textBox2.TabIndex = 1;
+>>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
             // 
             // label3
             // 
@@ -85,6 +118,7 @@
             // 
             // label1
             // 
+<<<<<<< HEAD
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,6 +202,19 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+=======
+            this.groupBox1.Controls.Add(this.btnLogin);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.test);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(25, 86);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(474, 160);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+>>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
             // 
             // btnLogin
             // 
@@ -241,9 +288,17 @@
         }
 
         #endregion
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox txtmatkhau;
         private System.Windows.Forms.TextBox txttaikhoan;
         private System.Windows.Forms.PictureBox pictureBox1;
+=======
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox test;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+>>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;

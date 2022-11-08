@@ -14,6 +14,8 @@ namespace Nhom8_BTL_QLST
 {
     public partial class TrangChu : Form
     {
+        ProcessDatabase processDatabase = new ProcessDatabase();
+
         public TrangChu()
         {
             InitializeComponent();
@@ -36,7 +38,8 @@ namespace Nhom8_BTL_QLST
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+     
+            
         }
 
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhom8_BTL-QLST", "Nhom8_BTL-QLST\Nhom8_BTL-QLST.csproj", "{59C9BE6E-57EC-4588-8304-0D6B070A1DE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{7EF855A3-0900-4DC1-822C-11AABF988AB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{59C9BE6E-57EC-4588-8304-0D6B070A1DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59C9BE6E-57EC-4588-8304-0D6B070A1DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C9BE6E-57EC-4588-8304-0D6B070A1DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EF855A3-0900-4DC1-822C-11AABF988AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF855A3-0900-4DC1-822C-11AABF988AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF855A3-0900-4DC1-822C-11AABF988AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF855A3-0900-4DC1-822C-11AABF988AB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,7 +30,6 @@ D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\Nhom8_BTL-QLST\Nhom8_BTL-
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL-QLST.csproj.AssemblyReference.cache
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL-QLST.csproj.SuggestedBindingRedirects.cache
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL_QLST.DangNhap.resources
-D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL_QLST.PageLienHe.resources
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL_QLST.PageThongKe.resources
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL_QLST.PageChuong.resources
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\Nhom8_BTL-QLST\obj\Debug\Nhom8_BTL_QLST.PageNhanVien.resources
