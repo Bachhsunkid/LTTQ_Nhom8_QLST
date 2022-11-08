@@ -92,8 +92,8 @@ namespace Nhom8_BTL_QLST
             dataTable = processDatabase.docBang("Select distinct TenNguonGoc from NguonGoc");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                cbbNguonGoc.Items.Add(dataTable.Rows[i][0].ToString());
-
+                cbbNguonGoc1.Items.Add(dataTable.Rows[i][0].ToString());
+                cbbNguonGoc2.Items.Add(dataTable.Rows[i][0].ToString());
             }
         }
         //Lấy danh sách thú hiển thị lên datagridview
@@ -127,13 +127,13 @@ namespace Nhom8_BTL_QLST
             cbbTenThu.SelectedIndex = -1;
             cbbLoaiThu2.SelectedIndex = -1;
             cbbKieuSinh2.SelectedIndex = -1;
-            cbbNguonGoc.SelectedIndex = -1;
+            cbbNguonGoc2.SelectedIndex = -1;
 
             //xóa bỏ text
             cbbTenThu.Text = "";
             cbbLoaiThu2.Text = "";
             cbbKieuSinh2.Text = "";
-            cbbNguonGoc.Text = "";
+            cbbNguonGoc2.Text = "";
         }
 
         private void PageThu_Load_1(object sender, EventArgs e)
@@ -188,7 +188,7 @@ namespace Nhom8_BTL_QLST
             //Xu li binding to datetimepicker ngay vao
             dtpNgayVao.Text = Convert.ToDateTime(dgvDanhSachThu.CurrentRow.Cells[9].Value.ToString()).ToString();
 
-            txtNguonGoc.Text = dgvDanhSachThu.CurrentRow.Cells[10].Value.ToString();
+            cbbNguonGoc1.Text = dgvDanhSachThu.CurrentRow.Cells[10].Value.ToString();
             txtDacDiem.Text = dgvDanhSachThu.CurrentRow.Cells[11].Value.ToString();
             //Xu li binding to datetimepicker ngay sinh
             dtpNgaySinh.Text = Convert.ToDateTime(dgvDanhSachThu.CurrentRow.Cells[12].Value.ToString()).ToString();
@@ -198,6 +198,11 @@ namespace Nhom8_BTL_QLST
             //binding picture
             //string pictureURL = dgvDanhSachThu.CurrentRow.Cells[14].Value.ToString();
             //ptbThu.ImageLocation = pictureURL;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

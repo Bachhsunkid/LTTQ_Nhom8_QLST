@@ -41,7 +41,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.txtNguonGoc = new System.Windows.Forms.TextBox();
             this.dtpNgayVao = new System.Windows.Forms.DateTimePicker();
             this.txtTuoiTho = new System.Windows.Forms.TextBox();
             this.txtDacDiem = new System.Windows.Forms.TextBox();
@@ -72,12 +71,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbbNguonGoc = new System.Windows.Forms.ComboBox();
+            this.cbbNguonGoc2 = new System.Windows.Forms.ComboBox();
             this.cbbKieuSinh2 = new System.Windows.Forms.ComboBox();
             this.cbbLoaiThu2 = new System.Windows.Forms.ComboBox();
             this.cbbTenThu = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvDanhSachThu = new System.Windows.Forms.DataGridView();
+            this.cbbNguonGoc1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,6 +101,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbbNguonGoc1);
             this.groupBox2.Controls.Add(this.cbbGioiTinh);
             this.groupBox2.Controls.Add(this.cbbKieuSinh1);
             this.groupBox2.Controls.Add(this.cbbLoaiThu1);
@@ -110,7 +111,6 @@
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.dtpNgaySinh);
-            this.groupBox2.Controls.Add(this.txtNguonGoc);
             this.groupBox2.Controls.Add(this.dtpNgayVao);
             this.groupBox2.Controls.Add(this.txtTuoiTho);
             this.groupBox2.Controls.Add(this.txtDacDiem);
@@ -143,6 +143,7 @@
             // 
             // cbbGioiTinh
             // 
+            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGioiTinh.FormattingEnabled = true;
             this.cbbGioiTinh.Location = new System.Drawing.Point(399, 153);
             this.cbbGioiTinh.Name = "cbbGioiTinh";
@@ -151,6 +152,7 @@
             // 
             // cbbKieuSinh1
             // 
+            this.cbbKieuSinh1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKieuSinh1.FormattingEnabled = true;
             this.cbbKieuSinh1.Location = new System.Drawing.Point(399, 111);
             this.cbbKieuSinh1.Name = "cbbKieuSinh1";
@@ -159,6 +161,7 @@
             // 
             // cbbLoaiThu1
             // 
+            this.cbbLoaiThu1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoaiThu1.FormattingEnabled = true;
             this.cbbLoaiThu1.Location = new System.Drawing.Point(108, 111);
             this.cbbLoaiThu1.Name = "cbbLoaiThu1";
@@ -241,6 +244,7 @@
             this.btnThem.Text = " Thêm";
             this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dtpNgaySinh
             // 
@@ -249,13 +253,6 @@
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(158, 22);
             this.dtpNgaySinh.TabIndex = 16;
-            // 
-            // txtNguonGoc
-            // 
-            this.txtNguonGoc.Location = new System.Drawing.Point(695, 34);
-            this.txtNguonGoc.Name = "txtNguonGoc";
-            this.txtNguonGoc.Size = new System.Drawing.Size(159, 22);
-            this.txtNguonGoc.TabIndex = 14;
             // 
             // dtpNgayVao
             // 
@@ -348,7 +345,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(20, 114);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 20);
+            this.label7.Size = new System.Drawing.Size(53, 16);
             this.label7.TabIndex = 1;
             this.label7.Text = "Loài thú";
             // 
@@ -450,7 +447,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbbNguonGoc);
+            this.groupBox1.Controls.Add(this.cbbNguonGoc2);
             this.groupBox1.Controls.Add(this.cbbKieuSinh2);
             this.groupBox1.Controls.Add(this.cbbLoaiThu2);
             this.groupBox1.Controls.Add(this.cbbTenThu);
@@ -534,16 +531,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên thú";
             // 
-            // cbbNguonGoc
+            // cbbNguonGoc2
             // 
-            this.cbbNguonGoc.FormattingEnabled = true;
-            this.cbbNguonGoc.Location = new System.Drawing.Point(118, 166);
-            this.cbbNguonGoc.Name = "cbbNguonGoc";
-            this.cbbNguonGoc.Size = new System.Drawing.Size(228, 24);
-            this.cbbNguonGoc.TabIndex = 0;
+            this.cbbNguonGoc2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNguonGoc2.FormattingEnabled = true;
+            this.cbbNguonGoc2.Location = new System.Drawing.Point(118, 166);
+            this.cbbNguonGoc2.Name = "cbbNguonGoc2";
+            this.cbbNguonGoc2.Size = new System.Drawing.Size(228, 24);
+            this.cbbNguonGoc2.TabIndex = 0;
             // 
             // cbbKieuSinh2
             // 
+            this.cbbKieuSinh2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKieuSinh2.FormattingEnabled = true;
             this.cbbKieuSinh2.Location = new System.Drawing.Point(118, 120);
             this.cbbKieuSinh2.Name = "cbbKieuSinh2";
@@ -552,6 +551,7 @@
             // 
             // cbbLoaiThu2
             // 
+            this.cbbLoaiThu2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoaiThu2.FormattingEnabled = true;
             this.cbbLoaiThu2.Location = new System.Drawing.Point(118, 78);
             this.cbbLoaiThu2.Name = "cbbLoaiThu2";
@@ -590,6 +590,15 @@
             this.dgvDanhSachThu.TabIndex = 0;
             this.dgvDanhSachThu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachThu_CellClick);
             // 
+            // cbbNguonGoc1
+            // 
+            this.cbbNguonGoc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNguonGoc1.FormattingEnabled = true;
+            this.cbbNguonGoc1.Location = new System.Drawing.Point(695, 34);
+            this.cbbNguonGoc1.Name = "cbbNguonGoc1";
+            this.cbbNguonGoc1.Size = new System.Drawing.Size(158, 24);
+            this.cbbNguonGoc1.TabIndex = 24;
+            // 
             // PageThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -622,7 +631,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbbNguonGoc;
+        private System.Windows.Forms.ComboBox cbbNguonGoc2;
         private System.Windows.Forms.ComboBox cbbKieuSinh2;
         private System.Windows.Forms.ComboBox cbbLoaiThu2;
         private System.Windows.Forms.ComboBox cbbTenThu;
@@ -654,7 +663,6 @@
         private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.TextBox txtMaThu;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.TextBox txtNguonGoc;
         private System.Windows.Forms.DateTimePicker dtpNgayVao;
         private System.Windows.Forms.PictureBox ptbThu;
         private System.Windows.Forms.Button btnXoa;
@@ -665,5 +673,6 @@
         private System.Windows.Forms.ComboBox cbbLoaiThu1;
         private System.Windows.Forms.ComboBox cbbKieuSinh1;
         private System.Windows.Forms.ComboBox cbbGioiTinh;
+        private System.Windows.Forms.ComboBox cbbNguonGoc1;
     }
 }
