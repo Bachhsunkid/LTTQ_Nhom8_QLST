@@ -31,11 +31,6 @@ namespace Nhom8_BTL_QLST
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Bạn có chắc muốn thoát ??","Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){
@@ -118,7 +113,7 @@ namespace Nhom8_BTL_QLST
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
-            txttaikhoan.Focus();
+            this.ActiveControl = txttaikhoan;
         }
 
         private void DangNhap_FormClosed(object sender, FormClosedEventArgs e)
@@ -131,6 +126,14 @@ namespace Nhom8_BTL_QLST
             this.Hide();
             Dangki dangki = new Dangki();
             dangki.ShowDialog();
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Laylaimatkhau t = new Laylaimatkhau();
+            t.ShowDialog();
             this.Close();
         }
     }

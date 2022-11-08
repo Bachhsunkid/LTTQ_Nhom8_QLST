@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dangki));
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtpassword = new System.Windows.Forms.TextBox();
+            this.txtusername = new System.Windows.Forms.TextBox();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.lbtaikhoan = new System.Windows.Forms.Label();
+            this.lbpassword = new System.Windows.Forms.Label();
+            this.lbemail = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -62,35 +66,65 @@
             this.label3.Text = "Đăng ký";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox2
+            // txtpassword
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.HideSelection = false;
-            this.textBox2.Location = new System.Drawing.Point(62, 247);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(220, 26);
-            this.textBox2.TabIndex = 18;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtpassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpassword.HideSelection = false;
+            this.txtpassword.Location = new System.Drawing.Point(62, 247);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Size = new System.Drawing.Size(220, 26);
+            this.txtpassword.TabIndex = 18;
+            this.txtpassword.UseSystemPasswordChar = true;
+            this.txtpassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtpassword_MouseClick);
             // 
-            // textBox1
+            // txtusername
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(62, 197);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 26);
-            this.textBox1.TabIndex = 19;
+            this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusername.Location = new System.Drawing.Point(62, 197);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(2);
+            this.txtusername.Name = "txtusername";
+            this.txtusername.Size = new System.Drawing.Size(220, 26);
+            this.txtusername.TabIndex = 19;
+            this.txtusername.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtusername_MouseClick);
             // 
-            // textBox3
+            // txtemail
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(62, 296);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(220, 26);
-            this.textBox3.TabIndex = 29;
+            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail.Location = new System.Drawing.Point(62, 296);
+            this.txtemail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(220, 26);
+            this.txtemail.TabIndex = 29;
+            this.txtemail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtemail_MouseClick);
+            // 
+            // lbtaikhoan
+            // 
+            this.lbtaikhoan.AutoSize = true;
+            this.lbtaikhoan.ForeColor = System.Drawing.Color.Red;
+            this.lbtaikhoan.Location = new System.Drawing.Point(63, 225);
+            this.lbtaikhoan.Name = "lbtaikhoan";
+            this.lbtaikhoan.Size = new System.Drawing.Size(0, 13);
+            this.lbtaikhoan.TabIndex = 32;
+            // 
+            // lbpassword
+            // 
+            this.lbpassword.AutoSize = true;
+            this.lbpassword.ForeColor = System.Drawing.Color.Red;
+            this.lbpassword.Location = new System.Drawing.Point(63, 273);
+            this.lbpassword.Name = "lbpassword";
+            this.lbpassword.Size = new System.Drawing.Size(0, 13);
+            this.lbpassword.TabIndex = 33;
+            // 
+            // lbemail
+            // 
+            this.lbemail.AutoSize = true;
+            this.lbemail.ForeColor = System.Drawing.Color.Red;
+            this.lbemail.Location = new System.Drawing.Point(63, 322);
+            this.lbemail.Name = "lbemail";
+            this.lbemail.Size = new System.Drawing.Size(0, 13);
+            this.lbemail.TabIndex = 34;
             // 
             // pictureBox7
             // 
@@ -156,6 +190,7 @@
             this.button1.Text = "Đăng ký  ";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox3
             // 
@@ -193,9 +228,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(308, 440);
+            this.Controls.Add(this.lbemail);
+            this.Controls.Add(this.lbpassword);
+            this.Controls.Add(this.lbtaikhoan);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtemail);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.button1);
@@ -203,12 +241,14 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtpassword);
+            this.Controls.Add(this.txtusername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dangki";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng kí";
+            this.Load += new System.EventHandler(this.Dangki_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -230,10 +270,13 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtpassword;
+        private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label lbtaikhoan;
+        private System.Windows.Forms.Label lbpassword;
+        private System.Windows.Forms.Label lbemail;
     }
 }

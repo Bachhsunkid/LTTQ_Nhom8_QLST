@@ -62,6 +62,12 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Laylaimatkhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laylaimatkhau.Designer.cs">
+      <DependentUpon>Laylaimatkhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laylaimatkhau.resx">
+      <DependentUpon>Laylaimatkhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageThongKe.resx">
       <DependentUpon>PageThongKe.cs</DependentUpon>
@@ -279,6 +288,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\undo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotation-lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotation-lock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotation-lock2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

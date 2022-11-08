@@ -1,4 +1,6 @@
-﻿namespace Nhom8_BTL_QLST
+﻿using System.Windows.Forms;
+
+namespace Nhom8_BTL_QLST
 {
     partial class DangNhap
     {
@@ -28,17 +30,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DangNhap));
             this.txtmatkhau = new System.Windows.Forms.TextBox();
             this.txttaikhoan = new System.Windows.Forms.TextBox();
-=======
             this.label1 = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
->>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
+            this.lbtkhoan = new System.Windows.Forms.Label();
+            this.lbmkhau = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,8 +45,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lbtkhoan = new System.Windows.Forms.Label();
-            this.lbmkhau = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -57,6 +54,7 @@
             // 
             // txtmatkhau
             // 
+            this.txtmatkhau.AcceptsTab = true;
             this.txtmatkhau.BackColor = System.Drawing.SystemColors.Window;
             this.txtmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmatkhau.HideSelection = false;
@@ -68,7 +66,6 @@
             this.txtmatkhau.UseSystemPasswordChar = true;
             this.txtmatkhau.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtmatkhau_MouseClick);
             // 
-<<<<<<< HEAD
             // txttaikhoan
             // 
             this.txttaikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,47 +75,9 @@
             this.txttaikhoan.Size = new System.Drawing.Size(220, 26);
             this.txttaikhoan.TabIndex = 7;
             this.txttaikhoan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txttaikhoan_MouseClick);
-=======
-            // test
-            // 
-            this.test.Location = new System.Drawing.Point(161, 16);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(292, 22);
-            this.test.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Mật khẩu";
-            // 
-            // textBox2
-            // 
-            this.textBox2.HideSelection = false;
-            this.textBox2.Location = new System.Drawing.Point(161, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 22);
-            this.textBox2.TabIndex = 1;
->>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label3.Location = new System.Drawing.Point(77, 138);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 36);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Đăng nhập";
             // 
             // label1
             // 
-<<<<<<< HEAD
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,6 +87,44 @@
             this.label1.Size = new System.Drawing.Size(129, 16);
             this.label1.TabIndex = 16;
             this.label1.Text = "Quên mật khẩu ??";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(161, 16);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(292, 20);
+            this.test.TabIndex = 1;
+            // 
+            // lbtkhoan
+            // 
+            this.lbtkhoan.AutoSize = true;
+            this.lbtkhoan.ForeColor = System.Drawing.Color.Red;
+            this.lbtkhoan.Location = new System.Drawing.Point(64, 223);
+            this.lbtkhoan.Name = "lbtkhoan";
+            this.lbtkhoan.Size = new System.Drawing.Size(0, 13);
+            this.lbtkhoan.TabIndex = 18;
+            // 
+            // lbmkhau
+            // 
+            this.lbmkhau.AutoSize = true;
+            this.lbmkhau.ForeColor = System.Drawing.Color.Red;
+            this.lbmkhau.Location = new System.Drawing.Point(64, 274);
+            this.lbmkhau.Name = "lbmkhau";
+            this.lbmkhau.Size = new System.Drawing.Size(0, 13);
+            this.lbmkhau.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label3.Location = new System.Drawing.Point(79, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(170, 36);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Đăng nhập";
             // 
             // pictureBox5
             // 
@@ -202,19 +199,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
-=======
-            this.groupBox1.Controls.Add(this.btnLogin);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.test);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(25, 86);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(474, 160);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
->>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
             // 
             // btnLogin
             // 
@@ -233,30 +217,13 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
-            // lbtkhoan
-            // 
-            this.lbtkhoan.AutoSize = true;
-            this.lbtkhoan.ForeColor = System.Drawing.Color.Red;
-            this.lbtkhoan.Location = new System.Drawing.Point(64, 223);
-            this.lbtkhoan.Name = "lbtkhoan";
-            this.lbtkhoan.Size = new System.Drawing.Size(0, 13);
-            this.lbtkhoan.TabIndex = 18;
-            // 
-            // lbmkhau
-            // 
-            this.lbmkhau.AutoSize = true;
-            this.lbmkhau.ForeColor = System.Drawing.Color.Red;
-            this.lbmkhau.Location = new System.Drawing.Point(64, 274);
-            this.lbmkhau.Name = "lbmkhau";
-            this.lbmkhau.Size = new System.Drawing.Size(0, 13);
-            this.lbmkhau.TabIndex = 19;
-            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(308, 440);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbmkhau);
             this.Controls.Add(this.lbtkhoan);
             this.Controls.Add(this.pictureBox5);
@@ -265,12 +232,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtmatkhau);
             this.Controls.Add(this.txttaikhoan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -288,26 +255,24 @@
         }
 
         #endregion
-<<<<<<< HEAD
+
         private System.Windows.Forms.TextBox txtmatkhau;
         private System.Windows.Forms.TextBox txttaikhoan;
         private System.Windows.Forms.PictureBox pictureBox1;
-=======
+
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox test;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
->>>>>>> 0b2e882a78045086b64af2ecd7af65943e96bb21
-        private System.Windows.Forms.Label label3;
+
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label lbtkhoan;
         private System.Windows.Forms.Label lbmkhau;
+        private Label label3;
     }
 }
