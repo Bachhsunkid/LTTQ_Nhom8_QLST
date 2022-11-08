@@ -225,6 +225,7 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // ptbThu
             // 
@@ -245,6 +246,7 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -486,6 +488,7 @@
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnLamMoi
             // 
@@ -511,6 +514,7 @@
             this.btnLoc.Text = "Lọc";
             this.btnLoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // label4
             // 
