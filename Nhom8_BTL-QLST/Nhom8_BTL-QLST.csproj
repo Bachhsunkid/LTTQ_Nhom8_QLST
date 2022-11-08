@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Thu.cs" />
     <Compile Include="Dangki.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,9 +227,7 @@
   <ItemGroup>
     <None Include="Resources\magnifying-glass1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\excel.png" />
   </ItemGroup>

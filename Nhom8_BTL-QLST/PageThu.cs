@@ -18,27 +18,6 @@ namespace Nhom8_BTL_QLST
         {
             InitializeComponent();
         }
-        //Kiem tra ma thu nhap vao da ton tai hay chua
-        public bool validateExistKey()
-        {
-            try
-            {
-                string maThu = txtMaThu.Text;
-
-                DataTable dataTable = processDatabase.docBang("Select MaThu from Thu where" + " MaThu='" + maThu + "'");
-                if (dataTable.Rows.Count == 0)
-                {
-                    MessageBox.Show("Mã khách hàng này không tồn tại, bạn hãy nhập mã khác!");
-                    txtMaThu.Focus();
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            return true;
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -101,7 +80,7 @@ namespace Nhom8_BTL_QLST
         {
             //Hien thi danh sach thu len datagridview
             DataTable dataTable = new DataTable();
-            dataTable = processDatabase.docBang("select MaThu, TenThu, MaLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, MaKieuSinh, GioiTinh, NgayVao, MaNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh from thu");
+            dataTable = processDatabase.docBang("select * from view_thu");
             dgvDanhSachThu.DataSource = dataTable;
         }
 
@@ -141,19 +120,37 @@ namespace Nhom8_BTL_QLST
 
         }
 
-        //Lay Ten loai theo ma loai
-        private string MaLoaiToTenLoai(string maLoai)
+        private Thu getThu()
         {
-            string tenLoai="";
-            tenLoai = processDatabase.docBang("Select TenLoai from Loai where maloai =  N'" +maLoai+ "' ").Rows[0][0].ToString();
-            return tenLoai;
-        }
-        //Lay Ten kieu sinh theo ma kieu sinh
-        private string MaKSToTenKS(string maKS)
-        {
-            string tenKieuSinh = "";
-            tenKieuSinh = processDatabase.docBang("Select TenKieuSinh from KieuSinh where MaKieuSinh =  N'" + maKS + "' ").Rows[0][0].ToString();
-            return tenKieuSinh;
+            DataTable dataTable = new DataTable();
+
+            Thu thu = new Thu();
+
+            thu.MaThu = txtMaThu.Text;
+            thu.TenThu = txtTenThu.Text;
+            //convert tu ten loai sang ma loai
+            thu.MaLoai = processDatabase.docBang("Select MaLoai from Loai where TenLoai = N'" + cbbLoaiThu1.Text + "' ").Rows[0][0].ToString();
+            thu.SoLuong = int.Parse(txtSoLuong.Text);
+            if (rdbCo.Checked == true)
+            {
+                thu.SachDo = 1;
+            }
+            else
+            {
+                thu.SachDo = 0;
+            }
+            thu.TenKH = txtTenKH.Text;
+            thu.TenTA = txtTenTA.Text;
+            //convert tu ten loai sang ma kieu sinh
+            thu.MaKS = processDatabase.docBang("Select MaKieuSinh from KieuSinh where TenKieuSinh = N'" + cbbKieuSinh1.Text + "' ").Rows[0][0].ToString();
+            thu.GioiTinh = cbbGioiTinh.Text;
+            thu.NgayVao = Convert.ToDateTime(dtpNgayVao.ToString());
+            thu.MaNG = processDatabase.docBang("Select MaNguonGoc from nguongoc where tennguongoc = N'" + cbbNguonGoc1.Text + "' ").Rows[0][0].ToString();
+            thu.DacDiem = txtDacDiem.Text;
+            thu.NgaySinh = Convert.ToDateTime(dtpNgaySinh.ToString());
+            thu.TuoiTho = int.Parse(txtTuoiTho.Text != null ? txtTuoiTho.Text : "0");
+            thu.Anh = txtAnh.Text;
+            return thu;
         }
 
         //Binding du lieu khi nhan vao 1 dong trong datagridview
@@ -162,8 +159,7 @@ namespace Nhom8_BTL_QLST
             txtMaThu.Text = dgvDanhSachThu.CurrentRow.Cells[0].Value.ToString();
             txtTenThu.Text = dgvDanhSachThu.CurrentRow.Cells[1].Value.ToString();
             //xu ly ma loai convert sang ten loai
-            string maLoai = dgvDanhSachThu.CurrentRow.Cells[2].Value.ToString();
-            cbbLoaiThu1.Text = MaLoaiToTenLoai(maLoai);
+            cbbLoaiThu1.Text = dgvDanhSachThu.CurrentRow.Cells[2].Value.ToString();
 
             txtSoLuong.Text = dgvDanhSachThu.CurrentRow.Cells[3].Value.ToString();
             //Xu ly binding radio button
@@ -181,8 +177,7 @@ namespace Nhom8_BTL_QLST
             txtTenTA.Text = dgvDanhSachThu.CurrentRow.Cells[6].Value.ToString();
 
             //xu ly ma kieu sinh convert sang ten kieu sinh
-            string maKS = dgvDanhSachThu.CurrentRow.Cells[7].Value.ToString();
-            cbbKieuSinh1.Text = MaKSToTenKS(maKS);
+            cbbKieuSinh1.Text = dgvDanhSachThu.CurrentRow.Cells[7].Value.ToString();
 
             cbbGioiTinh.Text = dgvDanhSachThu.CurrentRow.Cells[8].Value.ToString();
             //Xu li binding to datetimepicker ngay vao
@@ -196,11 +191,127 @@ namespace Nhom8_BTL_QLST
             txtTuoiTho.Text = dgvDanhSachThu.CurrentRow.Cells[13].Value.ToString();
 
             //binding picture
-            //string pictureURL = dgvDanhSachThu.CurrentRow.Cells[14].Value.ToString();
-            //ptbThu.ImageLocation = pictureURL;
+            string pictureURL = "C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\" + dgvDanhSachThu.CurrentRow.Cells[14].Value.ToString();
+            ptbThu.ImageLocation = pictureURL;
+
+            txtAnh.Text = pictureURL;
+        }
+        private bool ValidateDataNull_Thu()
+        {
+            try
+            {
+                if (txtMaThu.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải nhập mã thú"));
+                    txtMaThu.Focus();
+                    return false;
+                }
+                if (txtTenThu.Text.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải nhập tên thú"));
+                    txtTenThu.Focus();
+                    return false;
+                }
+                if (cbbLoaiThu1.Text.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải chọn loài thú"));
+                    cbbLoaiThu1.Focus();
+                    return false;
+                }
+                if (txtSoLuong.Text.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải nhập số lượng thú"));
+                    txtSoLuong.Focus();
+                    return false;
+                }
+                if (cbbGioiTinh.Text.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải nhập giới tính thú"));
+                    cbbGioiTinh.Focus();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+            return true;
         }
 
+        private bool ValidateDuplicateKey_Thu()
+        {
+            try
+            {
+                DataTable dataTable = processDatabase.docBang("Select MaThu from Thu where" + " MaThu='" + txtMaThu.Text + "'");
+                if (dataTable.Rows.Count > 0)
+                {
+                    MessageBox.Show("Mã thú này đã tồn tại, bạn hãy nhập mã khác!");
+                    txtMaThu.Focus();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return true;
+        }
+
+        private bool ValidateNotExistKey_Thu()
+        {
+            try
+            {
+                DataTable dataTable = processDatabase.docBang("Select MaThu from Thu where" + " MaThu='" + txtMaThu.Text + "'");
+                if (dataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("Mã thú này không tồn tại, bạn hãy nhập mã khác!");
+                    txtMaThu.Focus();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return true;
+        } 
         private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (ValidateDataNull_Thu() && ValidateDuplicateKey_Thu())
+            {
+                string query = "";
+                processDatabase.thucThiSQL(query);
+            }
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuong_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        //khoa khong cho nhap chu ở ô số lượng
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+        //khoa khong cho nhap chu ở ô tuổi thọ
+        private void txtTuoiTho_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void label19_Click(object sender, EventArgs e)
         {
 
         }

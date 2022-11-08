@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbbNguonGoc1 = new System.Windows.Forms.ComboBox();
             this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.cbbKieuSinh1 = new System.Windows.Forms.ComboBox();
             this.cbbLoaiThu1 = new System.Windows.Forms.ComboBox();
@@ -77,7 +78,8 @@
             this.cbbTenThu = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvDanhSachThu = new System.Windows.Forms.DataGridView();
-            this.cbbNguonGoc1 = new System.Windows.Forms.ComboBox();
+            this.txtAnh = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,6 +103,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.txtAnh);
             this.groupBox2.Controls.Add(this.cbbNguonGoc1);
             this.groupBox2.Controls.Add(this.cbbGioiTinh);
             this.groupBox2.Controls.Add(this.cbbKieuSinh1);
@@ -140,6 +144,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm thú";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // cbbNguonGoc1
+            // 
+            this.cbbNguonGoc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNguonGoc1.FormattingEnabled = true;
+            this.cbbNguonGoc1.Location = new System.Drawing.Point(695, 34);
+            this.cbbNguonGoc1.Name = "cbbNguonGoc1";
+            this.cbbNguonGoc1.Size = new System.Drawing.Size(158, 24);
+            this.cbbNguonGoc1.TabIndex = 24;
             // 
             // cbbGioiTinh
             // 
@@ -205,7 +218,7 @@
             // 
             this.btnXoa.Image = global::Nhom8_BTL_QLST.Properties.Resources.delete;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(937, 203);
+            this.btnXoa.Location = new System.Drawing.Point(948, 201);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(86, 36);
             this.btnXoa.TabIndex = 13;
@@ -225,7 +238,7 @@
             // 
             this.btnSua.Image = global::Nhom8_BTL_QLST.Properties.Resources.edit;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(937, 162);
+            this.btnSua.Location = new System.Drawing.Point(860, 201);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(86, 36);
             this.btnSua.TabIndex = 12;
@@ -237,7 +250,7 @@
             // 
             this.btnThem.Image = global::Nhom8_BTL_QLST.Properties.Resources.plus;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(937, 120);
+            this.btnThem.Location = new System.Drawing.Point(948, 160);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(86, 36);
             this.btnThem.TabIndex = 11;
@@ -268,6 +281,7 @@
             this.txtTuoiTho.Name = "txtTuoiTho";
             this.txtTuoiTho.Size = new System.Drawing.Size(159, 22);
             this.txtTuoiTho.TabIndex = 5;
+            this.txtTuoiTho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTuoiTho_KeyPress);
             // 
             // txtDacDiem
             // 
@@ -409,6 +423,9 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(156, 22);
             this.txtSoLuong.TabIndex = 0;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            this.txtSoLuong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSoLuong_KeyDown);
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtTenThu
             // 
@@ -590,14 +607,22 @@
             this.dgvDanhSachThu.TabIndex = 0;
             this.dgvDanhSachThu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachThu_CellClick);
             // 
-            // cbbNguonGoc1
+            // txtAnh
             // 
-            this.cbbNguonGoc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNguonGoc1.FormattingEnabled = true;
-            this.cbbNguonGoc1.Location = new System.Drawing.Point(695, 34);
-            this.cbbNguonGoc1.Name = "cbbNguonGoc1";
-            this.cbbNguonGoc1.Size = new System.Drawing.Size(158, 24);
-            this.cbbNguonGoc1.TabIndex = 24;
+            this.txtAnh.Location = new System.Drawing.Point(904, 123);
+            this.txtAnh.Name = "txtAnh";
+            this.txtAnh.Size = new System.Drawing.Size(130, 22);
+            this.txtAnh.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(860, 126);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(38, 20);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "Ảnh";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // PageThu
             // 
@@ -674,5 +699,7 @@
         private System.Windows.Forms.ComboBox cbbKieuSinh1;
         private System.Windows.Forms.ComboBox cbbGioiTinh;
         private System.Windows.Forms.ComboBox cbbNguonGoc1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtAnh;
     }
 }
