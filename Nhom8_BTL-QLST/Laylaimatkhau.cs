@@ -16,7 +16,7 @@ namespace Nhom8_BTL_QLST
         {
             InitializeComponent();
         }
-        ProcessDatabase db = new ProcessDatabase("Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=Taikhoan;Integrated Security=True");
+        ProcessDatabase db = new ProcessDatabase();
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtemail.Text.ToString().Trim() == "")
