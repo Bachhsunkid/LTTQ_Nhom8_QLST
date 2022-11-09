@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace Nhom8_BTL_QLST
 {
@@ -396,12 +398,93 @@ namespace Nhom8_BTL_QLST
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string tenThu = cbbTenThu.Text;
+                string loaiThu = cbbLoaiThu2.Text;
+                string kieuSinh = cbbKieuSinh2.Text;
+                string nguonGoc = cbbNguonGoc2.Text;
 
+                string query = "exec Proc_Thu_filter N'" + tenThu + "',N'" + loaiThu + "',N'" + kieuSinh + "',N'" + nguonGoc + "'";
+
+                DataTable dataTable = new DataTable();
+                dataTable = processDatabase.docBang(query);
+                dgvDanhSachThu.DataSource = dataTable;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                Excel.Application exApp = new Excel.Application();
+
+                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1]; //thao tác với worksheet trang đầu tiên
+                                                                                 //Excel.Range tenTruong = (Excel.Range)exSheet.Cells[1, 1];
+                exSheet.get_Range("B3:P4").Font.Bold = true;
+                exSheet.get_Range("F3").Value = "Danh sách thú";
+                exSheet.get_Range("A4").Value = "STT";
+                exSheet.get_Range("B4").Value = "Mã thú";
+                exSheet.get_Range("C4").Value = "Tên thú";
+                exSheet.get_Range("D4").Value = "Loài";
+                exSheet.get_Range("E4").Value = "Số lượng";
+                exSheet.get_Range("F4").Value = "Sách đỏ";
+                exSheet.get_Range("G4").Value = "Tên khoa học";
+                exSheet.get_Range("H4").Value = "Tên tiếng anh";
+                exSheet.get_Range("I4").Value = "Kiểu sinh";
+                exSheet.get_Range("J4").Value = "Giới tính";
+                exSheet.get_Range("K4").Value = "Ngày vào";
+                exSheet.get_Range("L4").Value = "Nguồn gốc";
+                exSheet.get_Range("M4").Value = "Đặc điểm";
+                exSheet.get_Range("N4").Value = "Ngày sinh";
+                exSheet.get_Range("O4").Value = "Tuổi thọ";
+                exSheet.get_Range("P4").Value = "Ảnh";
+
+
+                int n = dgvDanhSachThu.Rows.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    exSheet.get_Range("A" + (i + 5).ToString()).Value = (i + 1).ToString();
+                    exSheet.get_Range("B" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[0].Value;
+                    exSheet.get_Range("C" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[1].Value;
+                    exSheet.get_Range("D" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[2].Value;
+                    exSheet.get_Range("E" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[3].Value;
+                    exSheet.get_Range("F" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[4].Value;
+                    exSheet.get_Range("G" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[5].Value;
+                    exSheet.get_Range("H" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[6].Value;
+                    exSheet.get_Range("I" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[7].Value;
+                    exSheet.get_Range("J" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[8].Value;
+                    exSheet.get_Range("K" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[9].Value;
+                    exSheet.get_Range("L" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[10].Value;
+                    exSheet.get_Range("M" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[11].Value;
+                    exSheet.get_Range("N" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[12].Value;
+                    exSheet.get_Range("O" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[13].Value;
+                    exSheet.get_Range("P" + (i + 5).ToString()).Value = dgvDanhSachThu.Rows[i].Cells[14].Value;
+                }
+                //auto fit columns
+                foreach (Excel.Worksheet ws in exBook.Worksheets)
+                {
+                    Excel.Range range = ws.UsedRange;
+                    range.Columns.AutoFit();
+                }
+
+                exBook.Activate();
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.ShowDialog();
+                exBook.SaveAs(saveFileDialog.FileName.ToString());
+                exApp.Quit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }
