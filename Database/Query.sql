@@ -182,7 +182,9 @@ as begin
 	--print @query
 	exec sp_executesql @query
 end
-
+Select MaNguonGoc from nguongoc where tennguongoc = N'châu á'
 exec Proc_Thu_filter '','',N'Đẻ trứng',N'Châu Á'
 ----------------Chuong------------------
 ----------------Bao cao------------------
+
+update Thu set TenThu = N'Voi có vòi rất dài',MaLoai = N'L001',SoLuong = N'3',SachDo = N'0',TenKhoaHoc = N'Mammalia',TenTA = N'Elephant',MaKieuSinh = N'KS02',GioiTinh = N'Cái',NgayVao = N'6/15/2018 12:00:00 AM',MaNguonGoc = N'NG04',DacDiem = N'Da sần sùi, vòi dài chân to, tai to, đôi ngà trắng to dài',NgaySinh = N'12/10/2012 12:00:00 AM',TuoiTho = N'70',Anh = N'C:\Users\ADMIN\OneDrive\Documents\GitHub\LTTQ_Nhom8_QLST\\resources\\img\\voi.jpg' where mathu = N'Th01'

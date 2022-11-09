@@ -120,12 +120,9 @@ namespace Nhom8_BTL_QLST
 
         }
 
-        private Thu getThu()
+        private Thu GetThu()
         {
-            DataTable dataTable = new DataTable();
-
             Thu thu = new Thu();
-
             thu.MaThu = txtMaThu.Text;
             thu.TenThu = txtTenThu.Text;
             //convert tu ten loai sang ma loai
@@ -141,14 +138,15 @@ namespace Nhom8_BTL_QLST
             }
             thu.TenKH = txtTenKH.Text;
             thu.TenTA = txtTenTA.Text;
-            //convert tu ten loai sang ma kieu sinh
+            //convert tu ten kieu sinh sang ma kieu sinh
             thu.MaKS = processDatabase.docBang("Select MaKieuSinh from KieuSinh where TenKieuSinh = N'" + cbbKieuSinh1.Text + "' ").Rows[0][0].ToString();
             thu.GioiTinh = cbbGioiTinh.Text;
-            thu.NgayVao = Convert.ToDateTime(dtpNgayVao.ToString());
-            thu.MaNG = processDatabase.docBang("Select MaNguonGoc from nguongoc where tennguongoc = N'" + cbbNguonGoc1.Text + "' ").Rows[0][0].ToString();
+            thu.NgayVao = Convert.ToDateTime(dtpNgayVao.Value.ToString());
+            //convert tu ten nguon goc sang ma nguon goc
+            thu.MaNG = processDatabase.docBang("Select MaNguonGoc from NguonGoc where TenNguonGoc = N'" + cbbNguonGoc1.Text + "' ").Rows[0][0].ToString();
             thu.DacDiem = txtDacDiem.Text;
-            thu.NgaySinh = Convert.ToDateTime(dtpNgaySinh.ToString());
-            thu.TuoiTho = int.Parse(txtTuoiTho.Text != null ? txtTuoiTho.Text : "0");
+            thu.NgaySinh = Convert.ToDateTime(dtpNgaySinh.Value.ToString());
+            thu.TuoiTho = int.Parse(txtTuoiTho.Text == "" ? "0" : txtTuoiTho.Text);
             thu.Anh = txtAnh.Text;
             return thu;
         }
@@ -200,7 +198,7 @@ namespace Nhom8_BTL_QLST
         {
             try
             {
-                if (txtMaThu.Equals(""))
+                if (txtMaThu.Text.Equals(""))
                 {
                     MessageBox.Show(("Bạn cần phải nhập mã thú"));
                     txtMaThu.Focus();
@@ -224,9 +222,15 @@ namespace Nhom8_BTL_QLST
                     txtSoLuong.Focus();
                     return false;
                 }
-                if (cbbGioiTinh.Text.Equals(""))
+                if (cbbKieuSinh1.Text.Equals(""))
                 {
-                    MessageBox.Show(("Bạn cần phải nhập giới tính thú"));
+                    MessageBox.Show(("Bạn cần phải nhập kiểu sinh thú"));
+                    cbbGioiTinh.Focus();
+                    return false;
+                }
+                if (cbbNguonGoc1.Text.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải nhập nguồn gốc thú"));
                     cbbGioiTinh.Focus();
                     return false;
                 }
@@ -277,10 +281,25 @@ namespace Nhom8_BTL_QLST
         } 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (ValidateDataNull_Thu() && ValidateDuplicateKey_Thu())
+            try
             {
-                string query = "";
-                processDatabase.thucThiSQL(query);
+                if (ValidateDataNull_Thu() && ValidateDuplicateKey_Thu())
+                {
+                    Thu t = new Thu();
+                    t = GetThu();
+                    string query = "insert into Thu(mathu, TenThu, MaLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, MaKieuSinh, " +
+                        "GioiTinh, NgayVao, MaNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh) " +
+                        "values(N'" + t.MaThu + "', N'" + t.TenThu + "',N'" + t.MaLoai + "', '" + t.SoLuong + "','" + t.SachDo + "', " +
+                        "N'" + t.TenKH + "',N'" + t.TenTA + "', N'" + t.MaKS + "',N'" + t.GioiTinh + "', '" + t.NgayVao + "',N'" + t.MaNG + "', " +
+                        "N'" + t.DacDiem + "', '" + t.NgaySinh + "','" + t.TuoiTho + "', N'" + t.Anh + "')";
+                    processDatabase.thucThiSQL(query);
+                    GetListAnimal();
+                    MessageBox.Show("Thêm mới thành công!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -318,12 +337,61 @@ namespace Nhom8_BTL_QLST
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string id = dgvDanhSachThu.CurrentRow.Cells[0].Value.ToString();
+                if (ValidateDataNull_Thu() && ValidateNotExistKey_Thu() && MessageBox.Show("Ban co muon sua khong ?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.Yes && !id.Equals(""))
+                {
 
+                    Thu t = new Thu();
+                    t = GetThu();
+                    string query = "update Thu " +
+                        "set TenThu = N'" + t.TenThu + "'," +
+                        "MaLoai = N'" + t.MaLoai + "'," +
+                        "SoLuong = N'" + t.SoLuong + "'," +
+                        "SachDo = N'" + t.SachDo + "'," +
+                        "TenKhoaHoc = N'" + t.TenKH + "'," +
+                        "TenTA = N'" + t.TenTA + "'," +
+                        "MaKieuSinh = N'" + t.MaKS + "'," +
+                        "GioiTinh = N'" + t.GioiTinh + "'," +
+                        "NgayVao = N'" + t.NgayVao + "'," +
+                        "MaNguonGoc = N'" + t.MaNG + "'," +
+                        "DacDiem = N'" + t.DacDiem + "'," +
+                        "NgaySinh = N'" + t.NgaySinh + "'," +
+                        "TuoiTho = N'" + t.TuoiTho + "'," +
+                        "Anh = N'" + t.Anh + "'" +
+                        "where mathu = N'" + id + "'";
+                    processDatabase.thucThiSQL(query);
+                    GetListAnimal();
+                    MessageBox.Show("Sửa thông tin thành công!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string id = dgvDanhSachThu.CurrentRow.Cells[0].Value.ToString();
+                if (ValidateNotExistKey_Thu() && MessageBox.Show("Ban co muon xóa khong ?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.Yes && !id.Equals(""))
+                {
 
+                    Thu t = new Thu();
+                    t = GetThu();
+                    string query = "delete from Thu where mathu = N'" + id + "'";
+                    processDatabase.thucThiSQL(query);
+                    GetListAnimal();
+                    MessageBox.Show("Xóa thông tin thành công!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void btnLoc_Click(object sender, EventArgs e)

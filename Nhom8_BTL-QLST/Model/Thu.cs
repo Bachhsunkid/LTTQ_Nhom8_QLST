@@ -35,7 +35,7 @@ namespace Nhom8_BTL_QLST
         public string MaKS { get => maKS; set => maKS = value; }
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
         public DateTime NgayVao { get => ngayVao; set => ngayVao = value; }
-        public string MaNG { get => MaNG; set => MaNG = value; }
+        public string MaNG { get => maNG; set => maNG = value; }
         public string DacDiem { get => dacDiem; set => dacDiem = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public int TuoiTho { get => tuoiTho; set => tuoiTho = value; }
