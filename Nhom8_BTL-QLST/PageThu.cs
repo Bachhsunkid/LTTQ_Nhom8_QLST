@@ -486,5 +486,10 @@ namespace Nhom8_BTL_QLST
                 Console.WriteLine(ex);
             }
         }
+
+        private void dgvDanhSachThu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
