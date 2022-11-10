@@ -5,19 +5,20 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Nhom8_BTL_QLST
 {
     class ProcessDatabase
     {
+        SqlConnection conn;
         public ProcessDatabase()
         {
             conn = new SqlConnection(strConn);
         }
 
-        SqlConnection conn;
+        
         //Bach string connection
-        //string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
         //Ngoc string connection
         string strConn = "Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
@@ -81,6 +82,31 @@ namespace Nhom8_BTL_QLST
             {
                 dongKetNoi();
             }
+        }
+        public void InsertIntoThu()
+        {
+                ketNoi();
+                SqlCommand command = new SqlCommand(null, conn);
+
+                // Create and prepare an SQL statement.
+                command.CommandText =
+                    "INSERT INTO Thu (mathu, TenThu, MaLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, MaKieuSinh, GioiTinh, NgayVao, MaNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh) " +
+                    "VALUES (@mathu, @TenThu, @MaLoai, @SoLuong, @SachDo, @TenKhoaHoc, @TenTA, @MaKieuSinh, @GioiTinh, @NgayVao, @MaNguonGoc, @DacDiem, @NgaySinh, @TuoiTho, @Anh)";
+                SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 0);
+                SqlParameter descParam =new SqlParameter("@desc", SqlDbType.Text, 100);
+                idParam.Value = 20;
+                descParam.Value = "First Region";
+                command.Parameters.Add(idParam);
+                command.Parameters.Add(descParam);
+
+                // Call Prepare after setting the Commandtext and Parameters.
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+                // Change parameter values and call ExecuteNonQuery.
+                command.Parameters[0].Value = 21;
+                command.Parameters[1].Value = "Second Region";
+                command.ExecuteNonQuery();
         }
     }
 }

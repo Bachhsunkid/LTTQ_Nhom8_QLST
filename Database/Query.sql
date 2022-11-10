@@ -145,12 +145,44 @@ end
 ----------------Cac quyery dung chung------------------
 ----------------Nhan su------------------
 ----------------Thu------------------
--- Lay ra danh sach thu -> fill vao data grid view Thu
-select distinct * from Thu
-select * from NguonGoc
-create or alter view View_DanhSachThu as
-	select MaThu, TenThu, MaLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, MaKieuSinh, GioiTinh, NgayVao, MaNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh
-	from thu
-select * from View_DanhSachThu
+-- view DanhSachThu ->fill vao datagridview
+
+create or alter view view_thu as
+	select mathu, TenThu, TenLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, TenKieuSinh, GioiTinh, NgayVao, TenNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh
+	from Thu join loai on thu.MaLoai = loai.MaLoai
+			join NguonGoc on thu.MaNguonGoc = NguonGoc.MaNguonGoc
+			join KieuSinh on thu.MaKieuSinh = KieuSinh.MaKieuSinh
+select * from View_thu
+
+create or alter procedure Proc_Thu_filter(@ten nvarchar(255), @loai nvarchar(255), @kieusinh nvarchar(255), @nguongoc nvarchar(255))
+as begin
+	declare @query nvarchar(255)
+
+	if @ten = ''
+		set @ten = ''
+	else
+		set @ten = ' and TenThu = N'''+@ten+''' '
+
+	if @loai = ''
+		set @loai = ''
+	else
+		set @loai = ' and TenLoai = N'''+@loai+''' '
+
+	if @kieusinh = ''
+		set @kieusinh = ''
+	else
+		set @kieusinh = ' and TenKieuSinh = N'''+@kieusinh+''' '
+
+	if @nguongoc = ''
+		set @nguongoc = ''
+	else
+		set @nguongoc = ' and TenNguonGoc = N'''+@nguongoc+''' '
+
+	set @query = 'select * from view_thu where 1=1 ' + @ten + @loai + @kieusinh + @nguongoc
+	--print @query
+	exec sp_executesql @query
+end
+Select MaNguonGoc from nguongoc where tennguongoc = N'châu á'
+exec Proc_Thu_filter '','',N'Đẻ trứng',N'Châu Á'
 ----------------Chuong------------------
 ----------------Bao cao------------------
