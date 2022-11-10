@@ -31,6 +31,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbbKhu = new System.Windows.Forms.ComboBox();
+            this.cbbLoai = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -60,8 +62,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbbNhanVien2 = new System.Windows.Forms.ComboBox();
             this.cbbThu = new System.Windows.Forms.ComboBox();
-            this.cbbLoai = new System.Windows.Forms.ComboBox();
-            this.cbbKhu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,13 +71,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 209);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1423, 567);
+            this.dataGridView1.Size = new System.Drawing.Size(1358, 567);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
@@ -120,6 +120,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm thú";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // cbbKhu
+            // 
+            this.cbbKhu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKhu.FormattingEnabled = true;
+            this.cbbKhu.Location = new System.Drawing.Point(123, 138);
+            this.cbbKhu.Name = "cbbKhu";
+            this.cbbKhu.Size = new System.Drawing.Size(169, 24);
+            this.cbbKhu.TabIndex = 22;
+            // 
+            // cbbLoai
+            // 
+            this.cbbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLoai.FormattingEnabled = true;
+            this.cbbLoai.Location = new System.Drawing.Point(123, 87);
+            this.cbbLoai.Name = "cbbLoai";
+            this.cbbLoai.Size = new System.Drawing.Size(169, 24);
+            this.cbbLoai.TabIndex = 21;
             // 
             // label9
             // 
@@ -225,7 +243,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(26, 141);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 20);
+            this.label7.Size = new System.Drawing.Size(29, 16);
             this.label7.TabIndex = 1;
             this.label7.Text = "Khu";
             // 
@@ -234,7 +252,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(26, 94);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 20);
+            this.label6.Size = new System.Drawing.Size(33, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "Loài";
             // 
@@ -405,24 +423,6 @@
             this.cbbThu.Size = new System.Drawing.Size(216, 24);
             this.cbbThu.TabIndex = 0;
             // 
-            // cbbLoai
-            // 
-            this.cbbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbLoai.FormattingEnabled = true;
-            this.cbbLoai.Location = new System.Drawing.Point(123, 87);
-            this.cbbLoai.Name = "cbbLoai";
-            this.cbbLoai.Size = new System.Drawing.Size(169, 24);
-            this.cbbLoai.TabIndex = 21;
-            // 
-            // cbbKhu
-            // 
-            this.cbbKhu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbKhu.FormattingEnabled = true;
-            this.cbbKhu.Location = new System.Drawing.Point(123, 138);
-            this.cbbKhu.Name = "cbbKhu";
-            this.cbbKhu.Size = new System.Drawing.Size(169, 24);
-            this.cbbKhu.TabIndex = 22;
-            // 
             // PageChuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -431,6 +431,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PageChuong";
             this.Size = new System.Drawing.Size(1423, 776);
+            this.Load += new System.EventHandler(this.PageChuong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
