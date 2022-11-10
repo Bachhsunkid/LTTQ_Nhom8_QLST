@@ -148,10 +148,14 @@ end
 -- view DanhSachThu ->fill vao datagridview
 
 create or alter view view_thu as
-	select mathu, TenThu, TenLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, TenKieuSinh, GioiTinh, NgayVao, TenNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh
+	select thu.mathu as N'Mã thú', TenThu as N'Tên thú', TenLoai as N'Tên loài thú', SoLuong as N'Số lượng',
+	MaChuong as N'Mã chuồng', TenKhoaHoc as N'Tên khoa học', TenTA as N'Tên tiếng anh', TenKieuSinh as N'Kiểu sinh', 
+	GioiTinh as N'Giới tính', SachDo as N'Sách đỏ', thu.NgayVao as N'Ngày vào', TenNguonGoc as N'Nguồn gốc', DacDiem as N'Đặc điểm', 
+	NgaySinh as N'Ngày sinh', TuoiTho as N'Tuổi thọ', Anh as N'Ảnh'
 	from Thu join loai on thu.MaLoai = loai.MaLoai
 			join NguonGoc on thu.MaNguonGoc = NguonGoc.MaNguonGoc
 			join KieuSinh on thu.MaKieuSinh = KieuSinh.MaKieuSinh
+			join Thu_Chuong on thu.MaThu = Thu_Chuong.MaThu
 select * from View_thu
 
 create or alter procedure Proc_Thu_filter(@ten nvarchar(255), @loai nvarchar(255), @kieusinh nvarchar(255), @nguongoc nvarchar(255))
@@ -184,5 +188,22 @@ as begin
 end
 Select MaNguonGoc from nguongoc where tennguongoc = N'châu á'
 exec Proc_Thu_filter '','',N'Đẻ trứng',N'Châu Á'
+
 ----------------Chuong------------------
+
+select * from chuong
+
+create view View_Chuong_DanhSachChuong as
+	select MaChuong as N'Mã chuồng', TenLoai as N'Tên loài' , 
+	TenKhu as N'Tên khu', DienTich as N'Diện tích', 
+	ChieuCao as N'Chiều cao', SoLuongThu as N'Số lượng thú', 
+	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien as N'Nhân viên', Chuong.GhiChu as N'Ghi chú'
+	from Chuong join Loai on chuong.MaLoai = Loai.MaLoai
+				join Khu on chuong.MaKhu = Khu.MaKhu
+				join TrangThai on Chuong.MaTrangThai = TrangThai.MaTrangThai
+				join NhanVien on Chuong.MaNhanVien = NhanVien.MaNhanVien
+
+
+				select * from chuong
+Select distinct tenloai from loai
 ----------------Bao cao------------------
