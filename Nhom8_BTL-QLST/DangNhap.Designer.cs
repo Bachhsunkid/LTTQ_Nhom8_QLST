@@ -62,7 +62,7 @@ namespace Nhom8_BTL_QLST
             this.txtmatkhau.Margin = new System.Windows.Forms.Padding(2);
             this.txtmatkhau.Name = "txtmatkhau";
             this.txtmatkhau.Size = new System.Drawing.Size(220, 26);
-            this.txtmatkhau.TabIndex = 6;
+            this.txtmatkhau.TabIndex = 2;
             this.txtmatkhau.UseSystemPasswordChar = true;
             this.txtmatkhau.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtmatkhau_MouseClick);
             // 
@@ -85,7 +85,7 @@ namespace Nhom8_BTL_QLST
             this.label1.Location = new System.Drawing.Point(153, 290);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 16);
-            this.label1.TabIndex = 16;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Quên mật khẩu ??";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -164,7 +164,7 @@ namespace Nhom8_BTL_QLST
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 40);
-            this.button1.TabIndex = 14;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Đăng ký  ";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
@@ -211,7 +211,7 @@ namespace Nhom8_BTL_QLST
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(113, 40);
-            this.btnLogin.TabIndex = 9;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.UseVisualStyleBackColor = true;
