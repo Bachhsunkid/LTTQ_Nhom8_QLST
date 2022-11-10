@@ -162,6 +162,8 @@ namespace Nhom8_BTL_QLST
             cbbLoaiThu1.Text = dgvDanhSachThu.CurrentRow.Cells[2].Value.ToString();
 
             txtSoLuong.Text = dgvDanhSachThu.CurrentRow.Cells[3].Value.ToString();
+
+            
             //Xu ly binding radio button
             if (dgvDanhSachThu.CurrentRow.Cells[4].Value.ToString().Equals("True"))
             {
@@ -222,6 +224,12 @@ namespace Nhom8_BTL_QLST
                 {
                     MessageBox.Show(("Bạn cần phải nhập số lượng thú"));
                     txtSoLuong.Focus();
+                    return false;
+                }
+                if (cbbChuong.Text.Equals(""))
+                {
+                    MessageBox.Show(("Bạn cần phải nhập số mã chuồng"));
+                    cbbChuong.Focus();
                     return false;
                 }
                 if (cbbKieuSinh1.Text.Equals(""))
@@ -289,12 +297,19 @@ namespace Nhom8_BTL_QLST
                 {
                     Thu t = new Thu();
                     t = GetThu();
-                    string query = "insert into Thu(mathu, TenThu, MaLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, MaKieuSinh, " +
+                    //insert to Thu
+                    string queryToThu = "insert into Thu(mathu, TenThu, MaLoai, SoLuong, SachDo, TenKhoaHoc, TenTA, MaKieuSinh, " +
                         "GioiTinh, NgayVao, MaNguonGoc, DacDiem, NgaySinh, TuoiTho, Anh) " +
                         "values(N'" + t.MaThu + "', N'" + t.TenThu + "',N'" + t.MaLoai + "', '" + t.SoLuong + "','" + t.SachDo + "', " +
                         "N'" + t.TenKH + "',N'" + t.TenTA + "', N'" + t.MaKS + "',N'" + t.GioiTinh + "', '" + t.NgayVao + "',N'" + t.MaNG + "', " +
                         "N'" + t.DacDiem + "', '" + t.NgaySinh + "','" + t.TuoiTho + "', N'" + t.Anh + "')";
-                    processDatabase.thucThiSQL(query);
+                    processDatabase.thucThiSQL(queryToThu);
+
+                    //insert to Thu_Chuong
+                    string queryToThu_Chuong = "insert into Thu_Chuong(machuong,mathu,ngayvao) " +
+                        "values (N'" + cbbChuong.Text + "',N'" + t.MaThu + "',N'" + t.NgayVao + "')";
+                    processDatabase.thucThiSQL(queryToThu_Chuong);
+
                     GetListAnimal();
                     MessageBox.Show("Thêm mới thành công!");
                 }
@@ -347,7 +362,8 @@ namespace Nhom8_BTL_QLST
 
                     Thu t = new Thu();
                     t = GetThu();
-                    string query = "update Thu " +
+                    // update Thu
+                    string queryToThu = "update Thu " +
                         "set TenThu = N'" + t.TenThu + "'," +
                         "MaLoai = N'" + t.MaLoai + "'," +
                         "SoLuong = N'" + t.SoLuong + "'," +
@@ -363,7 +379,8 @@ namespace Nhom8_BTL_QLST
                         "TuoiTho = N'" + t.TuoiTho + "'," +
                         "Anh = N'" + t.Anh + "'" +
                         "where mathu = N'" + id + "'";
-                    processDatabase.thucThiSQL(query);
+                    processDatabase.thucThiSQL(queryToThu);
+
                     GetListAnimal();
                     MessageBox.Show("Sửa thông tin thành công!");
                 }
@@ -381,12 +398,10 @@ namespace Nhom8_BTL_QLST
                 string id = dgvDanhSachThu.CurrentRow.Cells[0].Value.ToString();
                 if (ValidateNotExistKey_Thu() && MessageBox.Show("Ban co muon xóa khong ?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.Yes && !id.Equals(""))
                 {
-
                     Thu t = new Thu();
                     t = GetThu();
-                    string query = "delete from Thu where mathu = N'" + id + "'";
-                    processDatabase.thucThiSQL(query);
-                    GetListAnimal();
+                    string queryToThu = "delete from Thu where mathu = N'" + id + "'";
+                    processDatabase.thucThiSQL(queryToThu);
                     MessageBox.Show("Xóa thông tin thành công!");
                 }
             }
@@ -485,6 +500,11 @@ namespace Nhom8_BTL_QLST
             {
                 Console.WriteLine(ex);
             }
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
