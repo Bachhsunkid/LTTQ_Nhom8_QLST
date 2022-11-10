@@ -76,6 +76,12 @@ namespace Nhom8_BTL_QLST
                 cbbNguonGoc1.Items.Add(dataTable.Rows[i][0].ToString());
                 cbbNguonGoc2.Items.Add(dataTable.Rows[i][0].ToString());
             }
+            //Fill dữ liệu từ DB vào combobox Chuong
+            dataTable = processDatabase.docBang("Select machuong from chuong");
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                cbbChuong.Items.Add(dataTable.Rows[i][0].ToString());
+            }
         }
         //Lấy danh sách thú hiển thị lên datagridview
         private void GetListAnimal()
@@ -503,6 +509,11 @@ namespace Nhom8_BTL_QLST
         }
 
         private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTuoiTho_TextChanged(object sender, EventArgs e)
         {
 
         }

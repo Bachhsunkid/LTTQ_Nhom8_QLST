@@ -189,7 +189,6 @@ end
 Select MaNguonGoc from nguongoc where tennguongoc = N'châu á'
 exec Proc_Thu_filter '','',N'Đẻ trứng',N'Châu Á'
 
-insert into
 ----------------Chuong------------------
 
 select * from chuong
