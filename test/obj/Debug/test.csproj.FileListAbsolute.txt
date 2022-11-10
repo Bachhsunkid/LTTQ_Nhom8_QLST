@@ -9,3 +9,14 @@ D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.CoreCompileInputs.cache
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.exe
 D:\UTC di hoc\ki5\Lap trinh truc quan 5-5 mien thi\BTL\LTTQ_Nhom8_QLST\test\obj\Debug\test.pdb
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\bin\Debug\test.exe.config
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\bin\Debug\test.exe
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\bin\Debug\test.pdb
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.AssemblyReference.cache
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.SuggestedBindingRedirects.cache
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.Form1.resources
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.Properties.Resources.resources
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.GenerateResource.cache
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.exe
+C:\Users\84377\Documents\GitHub\LTTQ_Nhom8_QLST\test\obj\Debug\test.pdb

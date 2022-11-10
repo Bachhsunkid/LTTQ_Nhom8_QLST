@@ -38,5 +38,16 @@ namespace test
         {
             textBox4.Text = comboBox1.Text;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime a = dateTimePicker1.Value.Date;
+            DateTime b = dateTimePicker2.Value.Date;
+            while (a != b)
+            {
+                a = a.AddDays(1);
+                textBox1.Text = a.ToString();
+            }
+        }
     }
 }
