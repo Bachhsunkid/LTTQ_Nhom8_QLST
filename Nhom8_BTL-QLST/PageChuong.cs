@@ -60,5 +60,15 @@ namespace Nhom8_BTL_QLST
                 e.Handled = true;
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void PageChuong_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
