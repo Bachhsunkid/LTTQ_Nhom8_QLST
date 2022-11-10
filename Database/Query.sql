@@ -184,5 +184,29 @@ as begin
 end
 Select MaNguonGoc from nguongoc where tennguongoc = N'châu á'
 exec Proc_Thu_filter '','',N'Đẻ trứng',N'Châu Á'
+--procedure lay so ban ghi trong bang thu
+create procedure proc_thu_sobanghi @sobanghi int output
+as begin
+	select @sobanghi = count(mathu) from thu 
+end
+
+declare @sobanghi int 
+exec proc_thu_sobanghi @sobanghi output
+print @sobanghi
+
+
+--phan trang cho thu
+create function Func_Thu_Phantrang (@limit int, @offset int)
+returns table as
+	return(
+	
+	)
+
+select * from thu
+
+select * from thu
+order by mathu
+OFFSET 10 ROWS
+FETCH NEXT 10 ROWS ONLY
 ----------------Chuong------------------
 ----------------Bao cao------------------

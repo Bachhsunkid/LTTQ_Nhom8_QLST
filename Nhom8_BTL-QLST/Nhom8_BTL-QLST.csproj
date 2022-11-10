@@ -328,5 +328,8 @@
   <ItemGroup>
     <None Include="Resources\rotation-lock2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\input.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
