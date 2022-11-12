@@ -16,7 +16,7 @@ namespace Nhom8_BTL_QLST
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            Application.Run(new TrangChu());
         }
     }
 }
