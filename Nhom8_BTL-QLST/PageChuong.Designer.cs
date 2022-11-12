@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbKhu = new System.Windows.Forms.ComboBox();
@@ -62,22 +61,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbbNhanVien2 = new System.Windows.Forms.ComboBox();
             this.cbbThu = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvChuong = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChuong)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 209);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1358, 567);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
@@ -87,7 +78,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1423, 209);
+            this.panel1.Size = new System.Drawing.Size(1423, 204);
             this.panel1.TabIndex = 2;
             // 
             // groupBox2
@@ -185,6 +176,7 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -197,6 +189,7 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -345,6 +338,7 @@
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // txtSoLuong
             // 
@@ -378,6 +372,7 @@
             this.btnLoc.Text = "Lọc";
             this.btnLoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // label4
             // 
@@ -423,28 +418,49 @@
             this.cbbThu.Size = new System.Drawing.Size(216, 24);
             this.cbbThu.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvChuong);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 204);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1423, 572);
+            this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // dgvChuong
+            // 
+            this.dgvChuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChuong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvChuong.Location = new System.Drawing.Point(0, 0);
+            this.dgvChuong.Name = "dgvChuong";
+            this.dgvChuong.RowHeadersWidth = 51;
+            this.dgvChuong.RowTemplate.Height = 24;
+            this.dgvChuong.Size = new System.Drawing.Size(1423, 572);
+            this.dgvChuong.TabIndex = 0;
+            this.dgvChuong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChuong_CellClick);
+            // 
             // PageChuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "PageChuong";
             this.Size = new System.Drawing.Size(1423, 776);
             this.Load += new System.EventHandler(this.PageChuong_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChuong)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnXoa;
@@ -478,5 +494,7 @@
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.ComboBox cbbKhu;
         private System.Windows.Forms.ComboBox cbbLoai;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvChuong;
     }
 }
