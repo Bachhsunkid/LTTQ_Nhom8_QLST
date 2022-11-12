@@ -144,19 +144,70 @@ begin
 end
 ----------------Cac quyery dung chung------------------
 ----------------Nhan su------------------
+create or alter view View_NhanVien as
+	select nhanvien.manhanvien N'Mã nhân viên', tennhanvien  N'Tên nhân viên', 
+	DienThoai  N'Số điện thoại', NgaySinh  N'Ngày sinh', gioitinh  N'Giới tính', DiaChi  N'Địa chỉ'--, machuong  N'Mã chuồng'
+	from NhanVien --join chuong on chuong.manhanvien = nhanvien.manhanvien
+
+-- nhan vien dang bi thieu gioi tinh -> chay lenh duoi di
+alter table NhanVien 
+add GioiTinh int
+
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV01'
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV02'
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV03'
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV04'
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV05'
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV06'
+update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV07'
+
 ----------------Thu------------------
 -- view DanhSachThu ->fill vao datagridview
 
 create or alter view view_thu as
-	select thu.mathu as N'Mã thú', TenThu as N'Tên thú', TenLoai as N'Tên loài thú', SoLuong as N'Số lượng',
-	MaChuong as N'Mã chuồng', TenKhoaHoc as N'Tên khoa học', TenTA as N'Tên tiếng anh', TenKieuSinh as N'Kiểu sinh', 
-	GioiTinh as N'Giới tính', SachDo as N'Sách đỏ', thu.NgayVao as N'Ngày vào', TenNguonGoc as N'Nguồn gốc', DacDiem as N'Đặc điểm', 
+	select thu.mathu as N'Mã thú', TenThu , TenLoai , SoLuong as N'Số lượng',
+	MaChuong as N'Mã chuồng', TenKhoaHoc as N'Tên khoa học', TenTA as N'Tên tiếng anh', TenKieuSinh, 
+	GioiTinh as N'Giới tính', SachDo as N'Sách đỏ', thu.NgayVao as N'Ngày vào', TenNguonGoc, DacDiem as N'Đặc điểm', 
 	NgaySinh as N'Ngày sinh', TuoiTho as N'Tuổi thọ', Anh as N'Ảnh'
 	from Thu join loai on thu.MaLoai = loai.MaLoai
 			join NguonGoc on thu.MaNguonGoc = NguonGoc.MaNguonGoc
 			join KieuSinh on thu.MaKieuSinh = KieuSinh.MaKieuSinh
 			join Thu_Chuong on thu.MaThu = Thu_Chuong.MaThu
 select * from View_thu
+--trigger xoa thu
+create or alter trigger xoaThu on Thu
+instead of delete as
+begin 
+	declare @mathu nvarchar(20) 
+	select @mathu = mathu from deleted
+	delete from Thu_Chuong where MaThu = @mathu
+	delete from Thu_ThucAn where MaThu = @mathu
+	delete from Thu_SuKien where MaThu = @mathu
+	delete from Thu where MaThu = @mathu
+end
+
+delete from Thu where mathu = N'Th011'
+
+--trigger cap nhat so luong thu
+create or alter trigger Trg_ThuChuong_CapNhatSLThu on Thu_Chuong
+for insert, delete, update as
+begin
+	declare @machuong_IN nvarchar(20)
+	declare @machuong_DE nvarchar(20)
+
+	select @machuong_IN = machuong from inserted
+	select @machuong_DE = machuong from deleted
+
+
+	update Chuong set SoLuongThu = ISNULL(SoLuongThu, 0) + ISNULL(thu.SoLuong,0)
+	from inserted join Thu on inserted.MaThu = Thu.MaThu
+	where Chuong.MaChuong = @machuong_IN
+
+	update Chuong set SoLuongThu = ISNULL(SoLuongThu, 0) + ISNULL(thu.SoLuong,0)
+	from inserted join Thu on inserted.MaThu = Thu.MaThu
+	where Chuong.MaChuong = @machuong_DE
+
+end
 
 create or alter procedure Proc_Thu_filter(@ten nvarchar(255), @loai nvarchar(255), @kieusinh nvarchar(255), @nguongoc nvarchar(255))
 as begin
@@ -183,27 +234,68 @@ as begin
 		set @nguongoc = ' and TenNguonGoc = N'''+@nguongoc+''' '
 
 	set @query = 'select * from view_thu where 1=1 ' + @ten + @loai + @kieusinh + @nguongoc
-	--print @query
+	print @query
 	exec sp_executesql @query
 end
-Select MaNguonGoc from nguongoc where tennguongoc = N'châu á'
-exec Proc_Thu_filter '','',N'Đẻ trứng',N'Châu Á'
+exec Proc_Thu_filter '','',N'',N'Châu Á'
+
 
 ----------------Chuong------------------
 
 select * from chuong
 
 create view View_Chuong_DanhSachChuong as
-	select MaChuong as N'Mã chuồng', TenLoai as N'Tên loài' , 
+	select Chuong.MaChuong as N'Mã chuồng', TenLoai as N'Tên loài' , 
 	TenKhu as N'Tên khu', DienTich as N'Diện tích', 
-	ChieuCao as N'Chiều cao', SoLuongThu as N'Số lượng thú', 
-	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien as N'Nhân viên', Chuong.GhiChu as N'Ghi chú'
+	ChieuCao as N'Chiều cao', SoLuongThu, 
+	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien, Chuong.GhiChu as N'Ghi chú'
 	from Chuong join Loai on chuong.MaLoai = Loai.MaLoai
 				join Khu on chuong.MaKhu = Khu.MaKhu
 				join TrangThai on Chuong.MaTrangThai = TrangThai.MaTrangThai
 				join NhanVien on Chuong.MaNhanVien = NhanVien.MaNhanVien
+				join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
+				join thu on thu.MaThu = Thu_Chuong.MaThu
+
+select * from View_Chuong_DanhSachChuong
+
+--trigger xoa chuong
+create or alter trigger xoaChuong on Chuong
+instead of delete as
+begin 
+	declare @maChuong nvarchar(20) 
+	select @maChuong = MaChuong from deleted
+	delete from Thu_Chuong where MaThu = @maChuong
+	delete from Chuong where MaChuong = @maChuong
+end
+
+delete from Chuong where maChuong = N'C222'
+--proc loc chuong
+create or alter procedure Proc_Chuong_filter(@mathu nvarchar(255), @manhanvien nvarchar(255), @soluong int)
+as begin
+	declare @query nvarchar(255)
+
+	if @mathu = ''
+		set @mathu = ''
+	else
+		set @mathu = ' and Thu.MaThu = N'''+@mathu+''' '
+
+	if @manhanvien = ''
+		set @manhanvien = ''
+	else
+		set @manhanvien = ' and TenNhanVien = N'''+@manhanvien+''' '
+
+	if @soluong = ''
+		set @soluong = ''
+	else
+		set @soluong = ' and SoLuongThu <= N'''+@soluong+''' '
 
 
-				select * from chuong
-Select distinct tenloai from loai
+	set @query = 'select * from View_Chuong_DanhSachChuong where 1=1 ' + @mathu + @manhanvien + @soluong
+	print @query
+	exec sp_executesql @query
+end
+
+insert into Chuong(machuong, maloai, makhu, dientich, chieucao, SoLuongThu, matrangthai, manhanvien, ghichu) 
+values(N'C111', N'L010',N'K02', '4','10', N'0',N'TT01', N'NV04',N'')
+
 ----------------Bao cao------------------

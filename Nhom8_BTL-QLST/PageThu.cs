@@ -169,9 +169,18 @@ namespace Nhom8_BTL_QLST
 
             txtSoLuong.Text = dgvDanhSachThu.CurrentRow.Cells[3].Value.ToString();
 
+            cbbChuong.Text = dgvDanhSachThu.CurrentRow.Cells[4].Value.ToString();
+
             
+            txtTenKH.Text = dgvDanhSachThu.CurrentRow.Cells[5].Value.ToString();
+            txtTenTA.Text = dgvDanhSachThu.CurrentRow.Cells[6].Value.ToString();
+
+            //xu ly ma kieu sinh convert sang ten kieu sinh
+            cbbKieuSinh1.Text = dgvDanhSachThu.CurrentRow.Cells[7].Value.ToString();
+
+            cbbGioiTinh.Text = dgvDanhSachThu.CurrentRow.Cells[8].Value.ToString();
             //Xu ly binding radio button
-            if (dgvDanhSachThu.CurrentRow.Cells[4].Value.ToString().Equals("True"))
+            if (dgvDanhSachThu.CurrentRow.Cells[9].Value.ToString().Equals("True"))
             {
                 rdbCo.Checked = true;
                 rdbKhong.Checked = false;
@@ -181,25 +190,20 @@ namespace Nhom8_BTL_QLST
                 rdbCo.Checked = false;
                 rdbKhong.Checked = true;
             }
-            txtTenKH.Text = dgvDanhSachThu.CurrentRow.Cells[5].Value.ToString();
-            txtTenTA.Text = dgvDanhSachThu.CurrentRow.Cells[6].Value.ToString();
 
-            //xu ly ma kieu sinh convert sang ten kieu sinh
-            cbbKieuSinh1.Text = dgvDanhSachThu.CurrentRow.Cells[7].Value.ToString();
-
-            cbbGioiTinh.Text = dgvDanhSachThu.CurrentRow.Cells[8].Value.ToString();
+           
             //Xu li binding to datetimepicker ngay vao
-            dtpNgayVao.Text = Convert.ToDateTime(dgvDanhSachThu.CurrentRow.Cells[9].Value.ToString()).ToString();
+            dtpNgayVao.Text = Convert.ToDateTime(dgvDanhSachThu.CurrentRow.Cells[10].Value.ToString()).ToString();
 
-            cbbNguonGoc1.Text = dgvDanhSachThu.CurrentRow.Cells[10].Value.ToString();
-            txtDacDiem.Text = dgvDanhSachThu.CurrentRow.Cells[11].Value.ToString();
+            cbbNguonGoc1.Text = dgvDanhSachThu.CurrentRow.Cells[11].Value.ToString();
+            txtDacDiem.Text = dgvDanhSachThu.CurrentRow.Cells[12].Value.ToString();
             //Xu li binding to datetimepicker ngay sinh
-            dtpNgaySinh.Text = Convert.ToDateTime(dgvDanhSachThu.CurrentRow.Cells[12].Value.ToString()).ToString();
+            dtpNgaySinh.Text = Convert.ToDateTime(dgvDanhSachThu.CurrentRow.Cells[13].Value.ToString()).ToString();
 
-            txtTuoiTho.Text = dgvDanhSachThu.CurrentRow.Cells[13].Value.ToString();
+            txtTuoiTho.Text = dgvDanhSachThu.CurrentRow.Cells[14].Value.ToString();
 
             //binding picture
-            string pictureURL = "C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\" + dgvDanhSachThu.CurrentRow.Cells[14].Value.ToString();
+            string pictureURL = "C:\\Users\\ADMIN\\OneDrive\\Documents\\GitHub\\" + dgvDanhSachThu.CurrentRow.Cells[15].Value.ToString();
             ptbThu.ImageLocation = pictureURL;
 
             txtAnh.Text = pictureURL;
@@ -401,13 +405,12 @@ namespace Nhom8_BTL_QLST
         {
             try
             {
-                string id = dgvDanhSachThu.CurrentRow.Cells[0].Value.ToString();
-                if (ValidateNotExistKey_Thu() && MessageBox.Show("Ban co muon xóa khong ?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.Yes && !id.Equals(""))
+                string idThu = dgvDanhSachThu.CurrentRow.Cells[0].Value.ToString();
+                if (ValidateNotExistKey_Thu() && MessageBox.Show("Ban co muon xóa khong ?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.Yes && !idThu.Equals(""))
                 {
-                    Thu t = new Thu();
-                    t = GetThu();
-                    string queryToThu = "delete from Thu where mathu = N'" + id + "'";
+                    string queryToThu = "delete from Thu where mathu = N'" + idThu + "'";
                     processDatabase.thucThiSQL(queryToThu);
+                    GetListAnimal();
                     MessageBox.Show("Xóa thông tin thành công!");
                 }
             }

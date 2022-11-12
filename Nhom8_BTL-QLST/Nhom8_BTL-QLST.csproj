@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Chuong.cs" />
+    <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\Thu.cs" />
     <Compile Include="Dangki.cs">
       <SubType>Form</SubType>
