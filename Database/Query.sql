@@ -146,7 +146,12 @@ end
 ----------------Nhan su------------------
 create or alter view View_NhanVien as
 	select nhanvien.manhanvien N'Mã nhân viên', tennhanvien  N'Tên nhân viên', 
-	DienThoai  N'Số điện thoại', NgaySinh  N'Ngày sinh', gioitinh  N'Giới tính', DiaChi  N'Địa chỉ'--, machuong  N'Mã chuồng'
+	DienThoai  N'Số điện thoại', NgaySinh  N'Ngày sinh', 
+	case gioitinh 
+		when 1 then N'Nam'
+		when 0 then N'Nữ'
+		else N'Khác'
+	end as N'Giới tính', DiaChi  N'Địa chỉ'--, machuong  N'Mã chuồng'
 	from NhanVien --join chuong on chuong.manhanvien = nhanvien.manhanvien
 
 -- nhan vien dang bi thieu gioi tinh -> chay lenh duoi di
@@ -161,6 +166,7 @@ update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV05'
 update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV06'
 update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV07'
 
+select * from NhanVien
 ----------------Thu------------------
 -- view DanhSachThu ->fill vao datagridview
 
@@ -244,7 +250,7 @@ exec Proc_Thu_filter '','',N'',N'Châu Á'
 
 select * from chuong
 
-create view View_Chuong_DanhSachChuong as
+create or alter view View_Chuong_DanhSachChuong as
 	select Chuong.MaChuong as N'Mã chuồng', TenLoai as N'Tên loài' , 
 	TenKhu as N'Tên khu', DienTich as N'Diện tích', 
 	ChieuCao as N'Chiều cao', SoLuongThu, 
@@ -253,8 +259,8 @@ create view View_Chuong_DanhSachChuong as
 				join Khu on chuong.MaKhu = Khu.MaKhu
 				join TrangThai on Chuong.MaTrangThai = TrangThai.MaTrangThai
 				join NhanVien on Chuong.MaNhanVien = NhanVien.MaNhanVien
-				join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
-				join thu on thu.MaThu = Thu_Chuong.MaThu
+				--join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
+				--join thu on thu.MaThu = Thu_Chuong.MaThu
 
 select * from View_Chuong_DanhSachChuong
 
