@@ -376,5 +376,14 @@ namespace Nhom8_BTL_QLST
                 Console.WriteLine(ex);
             }
         }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            cbbThu.SelectedIndex = -1;
+            cbbNhanVien2.SelectedIndex = -1;
+            txtSoLuong.Text = "";
+
+            GetListCage();
+        }
     }
 }

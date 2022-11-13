@@ -254,13 +254,12 @@ create or alter view View_Chuong_DanhSachChuong as
 	select Chuong.MaChuong as N'Mã chuồng', TenLoai as N'Tên loài' , 
 	TenKhu as N'Tên khu', DienTich as N'Diện tích', 
 	ChieuCao as N'Chiều cao', SoLuongThu, 
-	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien, Chuong.GhiChu as N'Ghi chú'
+	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien, Chuong.GhiChu as N'Ghi chú', mathu
 	from Chuong join Loai on chuong.MaLoai = Loai.MaLoai
 				join Khu on chuong.MaKhu = Khu.MaKhu
 				join TrangThai on Chuong.MaTrangThai = TrangThai.MaTrangThai
 				join NhanVien on Chuong.MaNhanVien = NhanVien.MaNhanVien
-				--join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
-				--join thu on thu.MaThu = Thu_Chuong.MaThu
+				join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
 
 select * from View_Chuong_DanhSachChuong
 
@@ -276,30 +275,33 @@ end
 
 delete from Chuong where maChuong = N'C222'
 --proc loc chuong
-create or alter procedure Proc_Chuong_filter(@mathu nvarchar(255), @manhanvien nvarchar(255), @soluong int)
+create or alter procedure Proc_Chuong_filter(@mathu nvarchar(255), @tennhanvien nvarchar(255), @soluong varchar(25))
 as begin
 	declare @query nvarchar(255)
 
 	if @mathu = ''
 		set @mathu = ''
 	else
-		set @mathu = ' and Thu.MaThu = N'''+@mathu+''' '
+		set @mathu = ' and MaThu = N'''+@mathu+''' '
 
-	if @manhanvien = ''
-		set @manhanvien = ''
+	if @tennhanvien = ''
+		set @tennhanvien = ''
 	else
-		set @manhanvien = ' and TenNhanVien = N'''+@manhanvien+''' '
+		set @tennhanvien = ' and TenNhanVien = N'''+@tennhanvien+''' '
 
 	if @soluong = ''
 		set @soluong = ''
 	else
-		set @soluong = ' and SoLuongThu <= N'''+@soluong+''' '
+		set @soluong = ' and SoLuongThu <= ' +@soluong+' '
 
 
-	set @query = 'select * from View_Chuong_DanhSachChuong where 1=1 ' + @mathu + @manhanvien + @soluong
-	print @query
+	set @query = 'select * from View_Chuong_DanhSachChuong where 1=1 ' + @mathu + @tennhanvien + @soluong
+	--print @query
 	exec sp_executesql @query
 end
+
+exec Proc_Chuong_filter N'Th014',N'', ''
+
 
 insert into Chuong(machuong, maloai, makhu, dientich, chieucao, SoLuongThu, matrangthai, manhanvien, ghichu) 
 values(N'C111', N'L010',N'K02', '4','10', N'0',N'TT01', N'NV04',N'')
