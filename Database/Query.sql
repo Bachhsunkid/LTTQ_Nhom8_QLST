@@ -146,7 +146,12 @@ end
 ----------------Nhan su------------------
 create or alter view View_NhanVien as
 	select nhanvien.manhanvien N'Mã nhân viên', tennhanvien  N'Tên nhân viên', 
-	DienThoai  N'Số điện thoại', NgaySinh  N'Ngày sinh', gioitinh  N'Giới tính', DiaChi  N'Địa chỉ'--, machuong  N'Mã chuồng'
+	DienThoai  N'Số điện thoại', NgaySinh  N'Ngày sinh', 
+	case gioitinh 
+		when 1 then N'Nam'
+		when 0 then N'Nữ'
+		else N'Khác'
+	end as N'Giới tính', DiaChi  N'Địa chỉ'--, machuong  N'Mã chuồng'
 	from NhanVien --join chuong on chuong.manhanvien = nhanvien.manhanvien
 
 -- nhan vien dang bi thieu gioi tinh -> chay lenh duoi di
@@ -161,6 +166,7 @@ update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV05'
 update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV06'
 update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV07'
 
+select * from NhanVien
 ----------------Thu------------------
 -- view DanhSachThu ->fill vao datagridview
 
@@ -244,17 +250,16 @@ exec Proc_Thu_filter '','',N'',N'Châu Á'
 
 select * from chuong
 
-create view View_Chuong_DanhSachChuong as
+create or alter view View_Chuong_DanhSachChuong as
 	select Chuong.MaChuong as N'Mã chuồng', TenLoai as N'Tên loài' , 
 	TenKhu as N'Tên khu', DienTich as N'Diện tích', 
 	ChieuCao as N'Chiều cao', SoLuongThu, 
-	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien, Chuong.GhiChu as N'Ghi chú'
+	TrangThai.TenTrangThai as N'Trạng thái', TenNhanVien, Chuong.GhiChu as N'Ghi chú', mathu
 	from Chuong join Loai on chuong.MaLoai = Loai.MaLoai
 				join Khu on chuong.MaKhu = Khu.MaKhu
 				join TrangThai on Chuong.MaTrangThai = TrangThai.MaTrangThai
 				join NhanVien on Chuong.MaNhanVien = NhanVien.MaNhanVien
 				join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
-				join thu on thu.MaThu = Thu_Chuong.MaThu
 
 select * from View_Chuong_DanhSachChuong
 
@@ -270,30 +275,33 @@ end
 
 delete from Chuong where maChuong = N'C222'
 --proc loc chuong
-create or alter procedure Proc_Chuong_filter(@mathu nvarchar(255), @manhanvien nvarchar(255), @soluong int)
+create or alter procedure Proc_Chuong_filter(@mathu nvarchar(255), @tennhanvien nvarchar(255), @soluong varchar(25))
 as begin
 	declare @query nvarchar(255)
 
 	if @mathu = ''
 		set @mathu = ''
 	else
-		set @mathu = ' and Thu.MaThu = N'''+@mathu+''' '
+		set @mathu = ' and MaThu = N'''+@mathu+''' '
 
-	if @manhanvien = ''
-		set @manhanvien = ''
+	if @tennhanvien = ''
+		set @tennhanvien = ''
 	else
-		set @manhanvien = ' and TenNhanVien = N'''+@manhanvien+''' '
+		set @tennhanvien = ' and TenNhanVien = N'''+@tennhanvien+''' '
 
 	if @soluong = ''
 		set @soluong = ''
 	else
-		set @soluong = ' and SoLuongThu <= N'''+@soluong+''' '
+		set @soluong = ' and SoLuongThu <= ' +@soluong+' '
 
 
-	set @query = 'select * from View_Chuong_DanhSachChuong where 1=1 ' + @mathu + @manhanvien + @soluong
-	print @query
+	set @query = 'select * from View_Chuong_DanhSachChuong where 1=1 ' + @mathu + @tennhanvien + @soluong
+	--print @query
 	exec sp_executesql @query
 end
+
+exec Proc_Chuong_filter N'Th014',N'', ''
+
 
 insert into Chuong(machuong, maloai, makhu, dientich, chieucao, SoLuongThu, matrangthai, manhanvien, ghichu) 
 values(N'C111', N'L010',N'K02', '4','10', N'0',N'TT01', N'NV04',N'')

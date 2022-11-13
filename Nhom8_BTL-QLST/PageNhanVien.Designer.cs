@@ -30,8 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbbMaChuong = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -73,8 +71,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.groupBox1.Controls.Add(this.cbbMaChuong);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnXuatExcel);
             this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnSua);
@@ -102,24 +98,6 @@
             this.groupBox1.Text = "Thêm nhân viên";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // cbbMaChuong
-            // 
-            this.cbbMaChuong.FormattingEnabled = true;
-            this.cbbMaChuong.Location = new System.Drawing.Point(554, 113);
-            this.cbbMaChuong.Name = "cbbMaChuong";
-            this.cbbMaChuong.Size = new System.Drawing.Size(176, 28);
-            this.cbbMaChuong.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(468, 120);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 16);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Mã chuồng";
-            // 
             // btnXuatExcel
             // 
             this.btnXuatExcel.Image = global::Nhom8_BTL_QLST.Properties.Resources.excel;
@@ -144,6 +122,7 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -380,8 +359,6 @@
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnXuatExcel;
-        private System.Windows.Forms.ComboBox cbbMaChuong;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvNV;
     }
 }
