@@ -20,6 +20,12 @@ namespace Nhom8_BTL_QLST
             InitializeComponent();
         }
 
+        public TrangChu(string s)
+        {
+            InitializeComponent();
+            label6.Text = s;
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -34,13 +40,6 @@ namespace Nhom8_BTL_QLST
         {
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-     
-            
-        }
-
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
@@ -162,6 +161,31 @@ namespace Nhom8_BTL_QLST
         }
 
         private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            pictureBox10.Visible = true;
+            pictureBox11.Visible = true;
+        }
+
+        private void TrangChu_Load(object sender, EventArgs e)
+        {
+            pictureBox10.Visible = false;
+            pictureBox11.Visible = false;
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DangNhap d = new DangNhap();
+            d.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
         {
 
         }

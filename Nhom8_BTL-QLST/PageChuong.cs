@@ -9,7 +9,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Nhom8_BTL_QLST
 {
@@ -321,69 +320,7 @@ namespace Nhom8_BTL_QLST
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            try
-            {
 
-                Excel.Application exApp = new Excel.Application();
-
-                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1]; //thao tác với worksheet trang đầu tiên
-                                                                                 //Excel.Range tenTruong = (Excel.Range)exSheet.Cells[1, 1];
-                exSheet.get_Range("B3:J4").Font.Bold = true;
-                exSheet.get_Range("F3").Value = "Danh sách thú";
-                exSheet.get_Range("A4").Value = "STT";
-                exSheet.get_Range("B4").Value = "Mã chuồng";
-                exSheet.get_Range("C4").Value = "Tên loài";
-                exSheet.get_Range("D4").Value = "Tên khu";
-                exSheet.get_Range("E4").Value = "Diện tích";
-                exSheet.get_Range("F4").Value = "Chiều cao";
-                exSheet.get_Range("G4").Value = "Số lượng thú";
-                exSheet.get_Range("H4").Value = "Trạng thái";
-                exSheet.get_Range("I4").Value = "Tên nhân viên trông coi";
-                exSheet.get_Range("J4").Value = "Ghi chú";
-
-
-
-                int n = dgvChuong.Rows.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    exSheet.get_Range("A" + (i + 5).ToString()).Value = (i + 1).ToString();
-                    exSheet.get_Range("B" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[0].Value;
-                    exSheet.get_Range("C" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[1].Value;
-                    exSheet.get_Range("D" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[2].Value;
-                    exSheet.get_Range("E" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[3].Value;
-                    exSheet.get_Range("F" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[4].Value;
-                    exSheet.get_Range("G" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[5].Value;
-                    exSheet.get_Range("H" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[6].Value;
-                    exSheet.get_Range("I" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[7].Value;
-                    exSheet.get_Range("J" + (i + 5).ToString()).Value = dgvChuong.Rows[i].Cells[8].Value;
-                }
-                //auto fit columns
-                foreach (Excel.Worksheet ws in exBook.Worksheets)
-                {
-                    Excel.Range range = ws.UsedRange;
-                    range.Columns.AutoFit();
-                }
-
-                exBook.Activate();
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.ShowDialog();
-                exBook.SaveAs(saveFileDialog.FileName.ToString());
-                exApp.Quit();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            cbbThu.SelectedIndex = -1;
-            cbbNhanVien2.SelectedIndex = -1;
-            txtSoLuong.Text = "";
-
-            GetListCage();
         }
     }
 }

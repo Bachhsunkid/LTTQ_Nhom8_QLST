@@ -14,31 +14,34 @@ namespace Nhom8_BTL_QLST
         SqlConnection conn;
         public ProcessDatabase()
         {
-            conn = new SqlConnection(strConn);
+            Conn = new SqlConnection(strConn);
         }
 
         
         //Bach string connection
-        string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
+        //string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
         //Ngoc string connection
-        //string strConn = "Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
+        string strConn = "Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
+
+        public SqlConnection Conn { get => conn; set => conn = value; }
+
         public ProcessDatabase(string s)
         {
-            conn = new SqlConnection(s);
+            Conn = new SqlConnection(s);
         }
         public void ketNoi()
         {
 
-            if (conn.State != System.Data.ConnectionState.Open)
+            if (Conn.State != System.Data.ConnectionState.Open)
             {
-                conn.Open();
+                Conn.Open();
             }
         }
         public void dongKetNoi()
         {
-            if (conn.State != System.Data.ConnectionState.Closed)
+            if (Conn.State != System.Data.ConnectionState.Closed)
             {
-                conn.Close();
+                Conn.Close();
             }
         }
 
@@ -48,7 +51,7 @@ namespace Nhom8_BTL_QLST
             {
                 DataTable dataTable = new DataTable();
                 ketNoi();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, conn);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, Conn);
                 sqlDataAdapter.Fill(dataTable);
                 dataTable.Dispose();
 
@@ -71,7 +74,7 @@ namespace Nhom8_BTL_QLST
             try
             {
                 ketNoi();
-                SqlCommand sqlcommand = new SqlCommand(query, conn);
+                SqlCommand sqlcommand = new SqlCommand(query, Conn);
                 sqlcommand.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -86,7 +89,7 @@ namespace Nhom8_BTL_QLST
         public void InsertIntoThu()
         {
                 ketNoi();
-                SqlCommand command = new SqlCommand(null, conn);
+                SqlCommand command = new SqlCommand(null, Conn);
 
                 // Create and prepare an SQL statement.
                 command.CommandText =

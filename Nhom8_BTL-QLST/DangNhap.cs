@@ -95,7 +95,7 @@ namespace Nhom8_BTL_QLST
             if (checktk())
             {
                 this.Hide();
-                TrangChu main = new TrangChu();
+                TrangChu main = new TrangChu(txttaikhoan.Text);
                 main.ShowDialog();
                 this.Close();
             }
