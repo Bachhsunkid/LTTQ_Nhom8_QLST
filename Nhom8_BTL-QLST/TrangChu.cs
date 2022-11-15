@@ -19,11 +19,12 @@ namespace Nhom8_BTL_QLST
         {
             InitializeComponent();
         }
-
+        string currentAcc = "";
         public TrangChu(string s)
         {
             InitializeComponent();
             label6.Text = s;
+            currentAcc = s;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -112,11 +113,13 @@ namespace Nhom8_BTL_QLST
             //Ẩn panel main và show footer
             pnFooter.Visible = false;
             pnMain.Controls.Clear();
+            label6.Text = currentAcc;
 
             //fill User control trang chủ vào main
             PageTrangChu pageTrangChu = new PageTrangChu();
             pageTrangChu.Dock = DockStyle.Fill;
             pnMain.Controls.Add(pageTrangChu);
+            pnMain.Controls.Add(panel6);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -167,13 +170,11 @@ namespace Nhom8_BTL_QLST
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            pictureBox10.Visible = true;
             pictureBox11.Visible = true;
         }
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            pictureBox10.Visible = false;
             pictureBox11.Visible = false;
         }
 

@@ -54,6 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportExcel.cs" />
+    <Compile Include="Laylaimatkhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laylaimatkhau.Designer.cs">
+      <DependentUpon>Laylaimatkhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Chuong.cs" />
     <Compile Include="Model\NhanVien.cs" />
     <Compile Include="Model\Thu.cs" />
@@ -113,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laylaimatkhau.resx">
+      <DependentUpon>Laylaimatkhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageThongKe.resx">
       <DependentUpon>PageThongKe.cs</DependentUpon>

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using DataTable = System.Data.DataTable;
 
 namespace Nhom8_BTL_QLST
 {
@@ -20,17 +21,26 @@ namespace Nhom8_BTL_QLST
         {
             InitializeComponent();
         }
+        String columnsNames = "Mã thú,Tên thú,Mã loài,Số lượng,Sách đỏ,Tên khoa học,Tên tiếng anh,Tên tiếng việt,Mã kiểu sinh,Giới tính,Ngày vào,Mã nguồn gốc,Đặc điểm,Ngày sinh,Ảnh,Tuổi thọ,Mã quê";
         ProcessDatabase db = new ProcessDatabase();
         int currentsize = 0;
         private void resetDS()
         {
             dataGridView1.DataSource = db.docBang("Select * from Thu");
+            SetColumnsNames(columnsNames);
         }
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             
         }
-
+        private void SetColumnsNames(String columnsNames)
+        {
+            String[] cNames = columnsNames.Split(',');
+            for (int i = 0; i < cNames.Length; i++)
+            {
+                dataGridView1.Columns[i].HeaderText = cNames[i];
+            }
+        }
         private void addCombobox()
         {
             db.ketNoi();
@@ -59,19 +69,24 @@ namespace Nhom8_BTL_QLST
                 if (comboBox2.SelectedIndex == 0)
                 {
                     dataGridView1.DataSource = db.docBang("select * from Timthutheoloai(N'" + comboBox1.SelectedItem.ToString() + "') and Mathu in (select Mathu from SachDo");
+                    SetColumnsNames(columnsNames);
                 }
                 else
                 {
                     dataGridView1.DataSource = db.docBang("select * from Timthutheoloai(N'" + comboBox1.SelectedItem.ToString() + "')");
+                    SetColumnsNames(columnsNames);
                 }
             }
             else if (comboBox2.SelectedIndex == 0)
             {
                 dataGridView1.DataSource = db.docBang("select * from SachDo");
+                SetColumnsNames(columnsNames);
+
             }
             else if(comboBox2.SelectedIndex == 1)
             {
                 dataGridView1.DataSource = db.docBang("select * from Thu where Mathu not in " + "(select Mathu from SachDo)");
+                SetColumnsNames(columnsNames);
             }
             else
             {
@@ -125,6 +140,7 @@ namespace Nhom8_BTL_QLST
             else
             {
                 dataGridView1.DataSource = db.docBang("select * from TimThu(N'" + txtMathu.Text.ToString().Trim() + "')");
+                SetColumnsNames(columnsNames);
             }
             db.dongKetNoi();
         }
@@ -133,6 +149,7 @@ namespace Nhom8_BTL_QLST
         {
             db.ketNoi();
             dataGridView1.DataSource = db.docBang("select * from ThuBiOm");
+            SetColumnsNames(columnsNames);
             if (dataGridView1.Rows.Count == 0)
             {
                 MessageBox.Show("Không có thú nào bị ốm", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
@@ -214,56 +231,64 @@ namespace Nhom8_BTL_QLST
             }
             else if (txtMathu1.Text.ToString().Trim() != "")
             {
-                int[] thang = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                DateTime a = dateTimePicker1.Value.Date;
-                DateTime b = dateTimePicker2.Value.Date;
-                int st = 0,kt=0;
-                DateTime curD = a;
-                while (a.Date != b.Date)
+                if(db.docBang("select * from Thu where mathu = N'" + txtMathu1.Text.Trim() + "'").Rows.Count > 0)
                 {
-                    if (db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows.Count > 0)
+                    int[] thang = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                    DateTime a = dateTimePicker1.Value.Date;
+                    DateTime b = dateTimePicker2.Value.Date;
+                    int st = 0;
+                    DateTime curD = a;
+                    while (a.Date != b.Date)
                     {
-                        foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
+                        if (db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows.Count > 0)
                         {
-                            string[] s = r["Tongtien"].ToString().Split(',');
-                            st += int.Parse(s[0]);
+                            foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
+                            {
+                                string[] s = r["Tongtien"].ToString().Split(',');
+                                st = int.Parse(s[0]);
+                            }
+                        }
+                        else
+                        {
+                            st = 0;
+                        }
+                        thang[a.Month] += st;
+                        a = a.AddDays(1);
+                        if (a.Month != curD.Month)
+                        {
+                            ListViewItem itemt = new ListViewItem();
+                            itemt.Text = txtMathu1.Text.ToString().Trim();
+                            itemt.SubItems.Add(curD.ToString());
+                            itemt.SubItems.Add(a.AddDays(-1).ToString());
+                            itemt.SubItems.Add(thang[a.AddDays(-1).Month].ToString());
+                            listView1.Items.Add(itemt);
+                            curD = a;
                         }
                     }
-                    else
+                    //a = dateTimePicker1.Value.Date;
+                    ListViewItem item = new ListViewItem();
+                    item.Text = txtMathu1.Text.ToString().Trim();
+                    item.SubItems.Add(curD.ToString());
+                    item.SubItems.Add(b.ToString());
+                    item.SubItems.Add(thang[b.Month].ToString());
+                    listView1.Items.Add(item);
+
+                    for (int i = 1; i <= 12; i++)
                     {
-                        st += 0;
+                        if (thang[i] != 0)
+                        {
+                            chart1.Series[0].Points.AddXY(i.ToString(), thang[i]);
+                        }
                     }
-                    thang[a.Month] += st;
-                    a = a.AddDays(1);
-                    if (a.Month != curD.Month)
-                    {
-                        ListViewItem itemt = new ListViewItem();
-                        itemt.Text = txtMathu1.Text.ToString().Trim();
-                        itemt.SubItems.Add(curD.ToString());
-                        itemt.SubItems.Add(a.AddDays(-1).ToString());
-                        itemt.SubItems.Add(thang[a.AddDays(-1).Month].ToString());
-                        listView1.Items.Add(itemt);
-                        curD = a;kt = 1;
-                    }
+                    chart1.Series[0].Name = "Tháng";
+                    chart1.Series[0].ChartType = SeriesChartType.Column;
+                    chart1.Titles.Add("Thống kê theo tháng");
                 }
-                //a = dateTimePicker1.Value.Date;
-                ListViewItem item = new ListViewItem();
-                item.Text = txtMathu1.Text.ToString().Trim();
-                item.SubItems.Add(curD.ToString());
-                item.SubItems.Add(b.ToString());
-                item.SubItems.Add(thang[b.Month].ToString());
-                listView1.Items.Add(item);
-                
-                for (int i = 1; i <= 12; i++)
+                else
                 {
-                    if (thang[i] != 0)
-                    {
-                        chart1.Series[0].Points.AddXY(i.ToString(), thang[i]);
-                    }
+                MessageBox.Show("Không có mã thú trong danh sách", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                    button6_Click_1(null, null);
                 }
-                chart1.Series[0].Name = "Tháng";
-                chart1.Series[0].ChartType = SeriesChartType.Column;
-                chart1.Titles.Add("Thống kê theo tháng");
             }
             db.dongKetNoi();
         }
@@ -274,7 +299,29 @@ namespace Nhom8_BTL_QLST
             listView1.Items.Clear();
             chart1.Series[0].Points.Clear();
             chart1.Titles.Clear();
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003(*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ExportExcel export = new ExportExcel();
+                    export.dataExport("A2", columnsNames, (DataTable)dataGridView1.DataSource, saveFileDialog.FileName);
+                    MessageBox.Show("Lưu thành công !", "Chúc mừng",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi " + ex.Message);
+                }
+            }
         }
     }
 };

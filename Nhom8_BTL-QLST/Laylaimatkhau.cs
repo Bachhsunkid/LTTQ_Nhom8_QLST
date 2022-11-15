@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,30 @@ namespace Nhom8_BTL_QLST
             InitializeComponent();
         }
         ProcessDatabase db = new ProcessDatabase();
-        private void button1_Click(object sender, EventArgs e)
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát ??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void Laylaimatkhau_Load_1(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtemail;
+
+        }
+
+        private void pictureBox7_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            DangNhap t = new DangNhap();
+            t.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (txtemail.Text.ToString().Trim() == "")
             {
@@ -30,39 +54,18 @@ namespace Nhom8_BTL_QLST
             else
             {
                 db.ketNoi();
-                if(db.docBang("select * from Taikhoan where username ='"+txttaikhoan.Text.ToString().Trim()+"' and email = '"+txtemail.Text.ToString().Trim()+"'").Rows.Count == 0)
+                if (db.docBang("select * from Taikhoan where username ='" + txttaikhoan.Text.ToString().Trim() + "' and email = '" + txtemail.Text.ToString().Trim() + "'").Rows.Count == 0)
                 {
                     label4.Text = "Tài khoản không tồn tại !!";
                 }
                 else
                 {
-                    foreach(DataRow row in db.docBang("select * from Taikhoan where username ='" + txttaikhoan.Text.ToString().Trim() + "' and email = '" + txtemail.Text.ToString().Trim() + "'").Rows)
+                    foreach (DataRow row in db.docBang("select * from Taikhoan where username ='" + txttaikhoan.Text.ToString().Trim() + "' and email = '" + txtemail.Text.ToString().Trim() + "'").Rows)
                     {
                         label4.Text = "Mật khẩu của bạn là :" + row["pass"].ToString();
                     }
                 }
             }
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn thoát ??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DangNhap t = new DangNhap();
-            t.ShowDialog();
-            this.Close();
-        }
-
-        private void Laylaimatkhau_Load(object sender, EventArgs e)
-        {
-            this.ActiveControl = txtemail;
         }
     }
 }
