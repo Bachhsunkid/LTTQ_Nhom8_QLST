@@ -41,6 +41,7 @@
             this.chiPhi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.txtMathu1 = new System.Windows.Forms.TextBox();
@@ -158,6 +159,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.txtMathu1);
@@ -176,12 +178,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Báo cáo";
             // 
+            // button8
+            // 
+            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button8.Image = global::Nhom8_BTL_QLST.Properties.Resources.excel;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(237, 92);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(24, 27);
+            this.button8.TabIndex = 9;
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button6
             // 
             this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button6.Image = global::Nhom8_BTL_QLST.Properties.Resources.refresh1;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(188, 64);
+            this.button6.Location = new System.Drawing.Point(188, 62);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 29);
@@ -196,7 +213,7 @@
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button5.Image = global::Nhom8_BTL_QLST.Properties.Resources.filter;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(200, 27);
+            this.button5.Location = new System.Drawing.Point(200, 25);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(62, 29);
@@ -535,5 +552,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button8;
     }
 }

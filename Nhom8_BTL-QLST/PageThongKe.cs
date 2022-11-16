@@ -62,8 +62,8 @@ namespace Nhom8_BTL_QLST
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
             db.ketNoi();
+
             if (comboBox1.SelectedIndex >= 0)
             {
                 if (comboBox2.SelectedIndex == 0)
@@ -91,6 +91,7 @@ namespace Nhom8_BTL_QLST
             else
             {
                 MessageBox.Show("Bạn cần chọn thông tin cần lọc", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                button1.Enabled = true;
             }
             if (dataGridView1.Rows.Count == 0)
             {
@@ -190,120 +191,109 @@ namespace Nhom8_BTL_QLST
                 chart1.Series[0].Points.Clear();
                 chart1.Titles.Clear();
             }
-            if (txtMathu1.Text.ToString().Trim() == "")
+            DateTime a = dateTimePicker1.Value.Date;
+            DateTime b = dateTimePicker2.Value.Date;
+            if (DateTime.Compare(a, b) == 1)
             {
-
-                DateTime a = dateTimePicker1.Value.Date;
-                DateTime b = dateTimePicker2.Value.Date;
-
-                int st;
-                foreach (DataRow row in db.docBang("select * from Thu").Rows)
-                {
-                    st = 0;
-                    while (DateTime.Compare(a.Date, b.Date) == -1)
-                    {
-                        if (db.docBang("select * from CP_MaThu(N'" + row["mathu"].ToString() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows.Count > 0)
-                        {
-                            foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + row["mathu"].ToString() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
-                            {
-
-                                if (r["Tongtien"].ToString().Contains(',')){
-                                    string[] s = r["Tongtien"].ToString().Split(',');
-                                    st += int.Parse(s[0]);
-                                }
-                                else
-                                {
-                                    string[] s = r["Tongtien"].ToString().Split('.');
-                                    st += int.Parse(s[0]);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            st += 0;
-                        }
-                        a = a.AddDays(1);
-                    }
-                    a = dateTimePicker1.Value.Date;
-                    ListViewItem item = new ListViewItem();
-                    item.Text = row["Mathu"].ToString();
-                    item.SubItems.Add(a.ToString());
-                    item.SubItems.Add(b.ToString());
-                    item.SubItems.Add(st.ToString());
-                    listView1.Items.Add(item);
-                    chart1.Series[0].Points.AddXY(row["mathu"], st);
-                }
-                chart1.Series[0].Name = "Mã thú";
-                chart1.Series[0].ChartType = SeriesChartType.Pie;
-                chart1.Titles.Add("Thống kê theo mã thú");
+                MessageBox.Show("Ngày sau phải lớn hơn ngày trước", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                button6_Click_1(null, null);
             }
-            else if (txtMathu1.Text.ToString().Trim() != "")
+            else
             {
-                if(db.docBang("select * from Thu where mathu = N'" + txtMathu1.Text.Trim() + "'").Rows.Count > 0)
+
+                if (txtMathu1.Text.ToString().Trim() == "")
                 {
-                    int[] thang = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                    DateTime a = dateTimePicker1.Value.Date;
-                    DateTime b = dateTimePicker2.Value.Date;
-                    int st = 0;
-                    DateTime curD = a;
-                    while (a.Date != b.Date)
+                    int st;
+                    foreach (DataRow row in db.docBang("select * from Thu").Rows)
                     {
-                        if (db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows.Count > 0)
+                        st = 0;
+                        while (DateTime.Compare(a.Date, b.Date) == -1)
                         {
-                            foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
+                            if (db.docBang("select * from CP_MaThu(N'" + row["mathu"].ToString() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows.Count > 0)
                             {
-                                if (r["Tongtien"].ToString().Contains(','))
+                                foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + row["mathu"].ToString() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
+                                {
+                                    string[] s = r["Tongtien"].ToString().Split(',');
+                                    st += int.Parse(s[0]);
+                                }
+                            }
+                            else
+                            {
+                                st += 0;
+                            }
+                            a = a.AddDays(1);
+                        }
+                        a = dateTimePicker1.Value.Date;
+                        ListViewItem item = new ListViewItem();
+                        item.Text = row["Mathu"].ToString();
+                        item.SubItems.Add(a.ToString());
+                        item.SubItems.Add(b.ToString());
+                        item.SubItems.Add(st.ToString());
+                        listView1.Items.Add(item);
+                        chart1.Series[0].Points.AddXY(row["mathu"], st);
+                    }
+                    chart1.Series[0].Name = "Mã thú";
+                    chart1.Series[0].ChartType = SeriesChartType.Pie;
+                    chart1.Titles.Add("Thống kê theo mã thú");
+                }
+                else if (txtMathu1.Text.ToString().Trim() != "")
+                {
+                    if (db.docBang("select * from Thu where mathu = N'" + txtMathu1.Text.Trim() + "'").Rows.Count > 0)
+                    {
+                        int[] thang = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                        int st = 0;
+                        DateTime curD = a;
+                        while (a.Date != b.Date)
+                        {
+                            if (db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows.Count > 0)
+                            {
+                                foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
                                 {
                                     string[] s = r["Tongtien"].ToString().Split(',');
                                     st = int.Parse(s[0]);
                                 }
-                                else
-                                {
-                                    string[] s = r["Tongtien"].ToString().Split('.');
-                                    st = int.Parse(s[0]);
-                                }
+                            }
+                            else
+                            {
+                                st = 0;
+                            }
+                            thang[a.Month] += st;
+                            a = a.AddDays(1);
+                            if (a.Month != curD.Month)
+                            {
+                                ListViewItem itemt = new ListViewItem();
+                                itemt.Text = txtMathu1.Text.ToString().Trim();
+                                itemt.SubItems.Add(curD.ToString());
+                                itemt.SubItems.Add(a.AddDays(-1).ToString());
+                                itemt.SubItems.Add(thang[a.AddDays(-1).Month].ToString());
+                                listView1.Items.Add(itemt);
+                                curD = a;
                             }
                         }
-                        else
-                        {
-                            st = 0;
-                        }
-                        thang[a.Month] += st;
-                        a = a.AddDays(1);
-                        if (a.Month != curD.Month)
-                        {
-                            ListViewItem itemt = new ListViewItem();
-                            itemt.Text = txtMathu1.Text.ToString().Trim();
-                            itemt.SubItems.Add(curD.ToString());
-                            itemt.SubItems.Add(a.AddDays(-1).ToString());
-                            itemt.SubItems.Add(thang[a.AddDays(-1).Month].ToString());
-                            listView1.Items.Add(itemt);
-                            curD = a;
-                        }
-                    }
-                    //a = dateTimePicker1.Value.Date;
-                    ListViewItem item = new ListViewItem();
-                    item.Text = txtMathu1.Text.ToString().Trim();
-                    item.SubItems.Add(curD.ToString());
-                    item.SubItems.Add(b.ToString());
-                    item.SubItems.Add(thang[b.Month].ToString());
-                    listView1.Items.Add(item);
+                        //a = dateTimePicker1.Value.Date;
+                        ListViewItem item = new ListViewItem();
+                        item.Text = txtMathu1.Text.ToString().Trim();
+                        item.SubItems.Add(curD.ToString());
+                        item.SubItems.Add(b.ToString());
+                        item.SubItems.Add(thang[b.Month].ToString());
+                        listView1.Items.Add(item);
 
-                    for (int i = 1; i <= 12; i++)
-                    {
-                        if (thang[i] != 0)
+                        for (int i = 1; i <= 12; i++)
                         {
-                            chart1.Series[0].Points.AddXY(i.ToString(), thang[i]);
+                            if (thang[i] != 0)
+                            {
+                                chart1.Series[0].Points.AddXY(i.ToString(), thang[i]);
+                            }
                         }
+                        chart1.Series[0].Name = "Tháng";
+                        chart1.Series[0].ChartType = SeriesChartType.Column;
+                        chart1.Titles.Add("Thống kê theo tháng");
                     }
-                    chart1.Series[0].Name = "Tháng";
-                    chart1.Series[0].ChartType = SeriesChartType.Column;
-                    chart1.Titles.Add("Thống kê theo tháng");
-                }
-                else
-                {
-                MessageBox.Show("Không có mã thú trong danh sách", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
-                    button6_Click_1(null, null);
+                    else
+                    {
+                        MessageBox.Show("Không có mã thú trong danh sách", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                        button6_Click_1(null, null);
+                    }
                 }
             }
             db.dongKetNoi();
@@ -329,13 +319,67 @@ namespace Nhom8_BTL_QLST
             {
                 try
                 {
+                    /*if()*/
                     ExportExcel export = new ExportExcel();
-                    export.dataExport("A2", columnsNames, (DataTable)dataGridView1.DataSource, saveFileDialog.FileName);
+                    export.dataExport("A2", columnsNames, (DataTable)dataGridView1.DataSource, saveFileDialog.FileName,"Danh sách thú");
                     MessageBox.Show("Lưu thành công !", "Chúc mừng",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi " + ex.Message);
+                }
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if(listView1.Items.Count <= 0)
+            {
+                MessageBox.Show("Không có thông tin để in", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                String colname = "";
+                DataTable dataTable = new DataTable();
+                int dem = 0;
+                foreach(ColumnHeader column in listView1.Columns)
+                {
+                    dataTable.Columns.Add(column.Text);
+                    dem++;
+                    if (dem == 4)
+                    {
+                        colname += column.Text;
+                    }
+                    else
+                    {
+                        colname += column.Text + ",";
+                    }
+                }
+                foreach(ListViewItem item in listView1.Items)
+                {
+                    DataRow row = dataTable.NewRow();
+                    for(int i = 0; i < item.SubItems.Count; i++)
+                    {
+                        row[i] = item.SubItems[i].Text;
+                    }
+                    dataTable.Rows.Add(row);
+                }
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Export excel";
+                saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003(*.xls)|*.xls";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        /*if()*/
+                        ExportExcel export = new ExportExcel();
+                        export.dataExport("A2", colname, (DataTable)dataTable, saveFileDialog.FileName, "Danh sách chi phí");
+                        MessageBox.Show("Lưu thành công !", "Chúc mừng", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi " + ex.Message);
+                    }
                 }
             }
         }
