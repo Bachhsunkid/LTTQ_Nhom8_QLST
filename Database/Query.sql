@@ -145,7 +145,7 @@ begin
 	group by a.thang_namapdung
 end
 
-select * from ThucAn_Gia
+select * from ThucAn
 insert ThucAn_Gia values(N'G008',N'TA007',40000,'2022-06-11 00:00:00.000')
 ----------------Cac quyery dung chung------------------
 ----------------Nhan su------------------

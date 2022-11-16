@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -91,13 +92,21 @@ namespace Nhom8_BTL_QLST
             dataTable = processDatabase.docBang("select * from view_thu");
             dgvDanhSachThu.DataSource = dataTable;
         }
-
+        private void LoadMaThu()
+        {
+            //lay ra ma thu lon nhat
+            string maxMaThu = processDatabase.docBang("Select max(MaThu) from Thu").Rows[0][0].ToString();
+            //lay phan so va tang them 1 don vi cho ma thu lon nhat
+            int temp = int.Parse(maxMaThu.Substring(2)) + 1;
+            txtMaThu.Text = String.Concat("Th", temp.ToString());
+        }
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
             //Lấy danh sách thú hiển thị lên datagridview
             GetListAnimal();
             //Fill dữ liệu từ DB vào các combobox
             FillDataToCombobox();
+            LoadMaThu();
         }
 
 
@@ -131,6 +140,11 @@ namespace Nhom8_BTL_QLST
         private Thu GetThu()
         {
             Thu thu = new Thu();
+            //lay ra ma thu lon nhat
+            //string maxMaThu = processDatabase.docBang("Select max(MaThu) from Thu").Rows[0][0].ToString();
+            //lay phan so va tang them 1 don vi cho ma thu lon nhat
+            //int temp = int.Parse(maxMaThu.Substring(2)) + 1;
+            //Gan ma thu vao Thu: String.Concat("Th", temp.ToString());
             thu.MaThu = txtMaThu.Text;
             thu.TenThu = txtTenThu.Text;
             //convert tu ten loai sang ma loai
@@ -319,8 +333,8 @@ namespace Nhom8_BTL_QLST
                     string queryToThu_Chuong = "insert into Thu_Chuong(machuong,mathu,ngayvao) " +
                         "values (N'" + cbbChuong.Text + "',N'" + t.MaThu + "',N'" + t.NgayVao + "')";
                     processDatabase.thucThiSQL(queryToThu_Chuong);
-
                     GetListAnimal();
+                    LoadMaThu();
                     MessageBox.Show("Thêm mới thành công!");
                 }
             }
@@ -392,6 +406,7 @@ namespace Nhom8_BTL_QLST
                     processDatabase.thucThiSQL(queryToThu);
 
                     GetListAnimal();
+                    LoadMaThu();
                     MessageBox.Show("Sửa thông tin thành công!");
                 }
             }
@@ -411,8 +426,10 @@ namespace Nhom8_BTL_QLST
                     string queryToThu = "delete from Thu where mathu = N'" + idThu + "'";
                     processDatabase.thucThiSQL(queryToThu);
                     GetListAnimal();
+                    LoadMaThu();
                     MessageBox.Show("Xóa thông tin thành công!");
                 }
+                
             }
             catch (Exception ex)
             {

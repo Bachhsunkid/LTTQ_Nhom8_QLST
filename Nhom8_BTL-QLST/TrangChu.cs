@@ -190,5 +190,22 @@ namespace Nhom8_BTL_QLST
         {
 
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            //Ẩn panel main và show footer
+            pnFooter.Visible = true;
+            pnMain.Controls.Clear();
+
+            //fill User control thú vào main
+            PageNhapLieu pageNhapLieu = new PageNhapLieu();
+            pageNhapLieu.Dock = DockStyle.Fill;
+            pnMain.Controls.Add(pageNhapLieu);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

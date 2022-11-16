@@ -76,6 +76,12 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageNhapLieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageNhapLieu.Designer.cs">
+      <DependentUpon>PageNhapLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Laylaimatkhau.resx">
       <DependentUpon>Laylaimatkhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageNhapLieu.resx">
+      <DependentUpon>PageNhapLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageThongKe.resx">
       <DependentUpon>PageThongKe.cs</DependentUpon>
