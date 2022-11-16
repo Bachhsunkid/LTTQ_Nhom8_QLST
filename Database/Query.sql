@@ -169,8 +169,11 @@ update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV06'
 update NhanVien set GioiTinh = 1 where MaNhanVien = N'NV07'
 
 ----------------Thu------------------
--- view DanhSachThu ->fill vao datagridview
+--bat buoc chay cau lenh insert nay
+insert into Thu(mathu) values (N'Th111')
 
+select max(mathu) from thu
+-- view DanhSachThu ->fill vao datagridview
 create or alter view view_thu as
 	select thu.mathu as N'Mã thú', TenThu , TenLoai , SoLuong as N'Số lượng',
 	MaChuong as N'Mã chuồng', TenKhoaHoc as N'Tên khoa học', TenTA as N'Tên tiếng anh', TenKieuSinh, 
