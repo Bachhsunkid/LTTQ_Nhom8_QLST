@@ -206,8 +206,16 @@ namespace Nhom8_BTL_QLST
                         {
                             foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + row["mathu"].ToString() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
                             {
-                                string[] s = r["Tongtien"].ToString().Split(',');
-                                st += int.Parse(s[0]);
+
+                                if (r["Tongtien"].ToString().Contains(',')){
+                                    string[] s = r["Tongtien"].ToString().Split(',');
+                                    st += int.Parse(s[0]);
+                                }
+                                else
+                                {
+                                    string[] s = r["Tongtien"].ToString().Split('.');
+                                    st += int.Parse(s[0]);
+                                }
                             }
                         }
                         else
@@ -244,8 +252,16 @@ namespace Nhom8_BTL_QLST
                         {
                             foreach (DataRow r in db.docBang("select * from CP_MaThu(N'" + txtMathu1.Text.ToString().Trim() + "','" + a.Year + "-" + a.Month + "-" + a.Day + "')").Rows)
                             {
-                                string[] s = r["Tongtien"].ToString().Split(',');
-                                st = int.Parse(s[0]);
+                                if (r["Tongtien"].ToString().Contains(','))
+                                {
+                                    string[] s = r["Tongtien"].ToString().Split(',');
+                                    st = int.Parse(s[0]);
+                                }
+                                else
+                                {
+                                    string[] s = r["Tongtien"].ToString().Split('.');
+                                    st = int.Parse(s[0]);
+                                }
                             }
                         }
                         else
