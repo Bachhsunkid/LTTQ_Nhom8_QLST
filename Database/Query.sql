@@ -213,10 +213,9 @@ begin
 	from inserted join Thu on inserted.MaThu = Thu.MaThu
 	where Chuong.MaChuong = @machuong_IN
 
-	update Chuong set SoLuongThu = ISNULL(SoLuongThu, 0) + ISNULL(thu.SoLuong,0)
-	from inserted join Thu on inserted.MaThu = Thu.MaThu
+	update Chuong set SoLuongThu = ISNULL(SoLuongThu, 0) - ISNULL(thu.SoLuong,0)
+	from deleted join Thu on deleted.MaThu = Thu.MaThu
 	where Chuong.MaChuong = @machuong_DE
-
 end
 
 create or alter procedure Proc_Thu_filter(@ten nvarchar(255), @loai nvarchar(255), @kieusinh nvarchar(255), @nguongoc nvarchar(255))
@@ -263,8 +262,7 @@ create or alter view View_Chuong_DanhSachChuong as
 				join Khu on chuong.MaKhu = Khu.MaKhu
 				join TrangThai on Chuong.MaTrangThai = TrangThai.MaTrangThai
 				join NhanVien on Chuong.MaNhanVien = NhanVien.MaNhanVien
-				--join Thu_Chuong on Thu_Chuong.MaChuong = Chuong.MaChuong
-				--join thu on thu.MaThu = Thu_Chuong.MaThu
+
 
 select * from View_Chuong_DanhSachChuong
 select * from chuong
@@ -309,4 +307,7 @@ end
 insert into Chuong(machuong, maloai, makhu, dientich, chieucao, SoLuongThu, matrangthai, manhanvien, ghichu) 
 values(N'C111', N'L010',N'K02', '4','10', N'0',N'TT01', N'NV04',N'')
 
+select * from chuong
+
+select * from View_Chuong_DanhSachChuong
 ----------------Bao cao------------------

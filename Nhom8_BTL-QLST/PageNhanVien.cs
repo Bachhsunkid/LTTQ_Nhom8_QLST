@@ -95,13 +95,13 @@ namespace Nhom8_BTL_QLST
             txtTenNhanVien.Text = dgvNV.CurrentRow.Cells[1].Value.ToString();
             txtSoDienThoai.Text = dgvNV.CurrentRow.Cells[2].Value.ToString();
             dtpNgaySinh.Text = Convert.ToDateTime(dgvNV.CurrentRow.Cells[3].Value.ToString()).ToString();
-            if (dgvNV.CurrentRow.Cells[4].Value.ToString() == "1")
+            if (dgvNV.CurrentRow.Cells[4].Value.ToString().Equals("Nam"))
             {
                 rdbNam.Checked = true;
                 rdbNu.Checked = false;
                 rdbKhac.Checked = false;
             }
-            else if (dgvNV.CurrentRow.Cells[4].Value.ToString() == "0")
+            else if (dgvNV.CurrentRow.Cells[4].Value.ToString().Equals("Nữ"))
             {
                 rdbNam.Checked = false;
                 rdbNu.Checked = true;

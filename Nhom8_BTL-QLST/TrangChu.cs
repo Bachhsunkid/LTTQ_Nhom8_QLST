@@ -31,10 +31,14 @@ namespace Nhom8_BTL_QLST
         {
 
         }
-
+        private string GetNumberOfRecords(string query)
+        {
+            string res = "";
+            res = processDatabase.docBang(query).Rows[0][0].ToString();
+            return res;
+        }
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -106,6 +110,8 @@ namespace Nhom8_BTL_QLST
             PageNhanVien pageNhanVien = new PageNhanVien();
             pageNhanVien.Dock = DockStyle.Fill;
             pnMain.Controls.Add(pageNhanVien);
+
+            lblTongBanGhi.Text = GetNumberOfRecords("select count(manhanvien) from nhanvien");
         }
 
         private void btnTrangChu_Click(object sender, EventArgs e)
@@ -132,6 +138,8 @@ namespace Nhom8_BTL_QLST
             PageThu pageThu = new PageThu();
             pageThu.Dock = DockStyle.Fill;
             pnMain.Controls.Add(pageThu);
+
+            lblTongBanGhi.Text = GetNumberOfRecords("select count(mathu) from thu");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -144,6 +152,8 @@ namespace Nhom8_BTL_QLST
             PageChuong pageChuong = new PageChuong();
             pageChuong.Dock = DockStyle.Fill;
             pnMain.Controls.Add(pageChuong);
+
+            lblTongBanGhi.Text = GetNumberOfRecords("select count(machuong) from chuong");
         }
 
         private void btnNhapLieu_Click(object sender, EventArgs e)
@@ -156,6 +166,8 @@ namespace Nhom8_BTL_QLST
             PageThongKe pageThongKe = new PageThongKe();
             pageThongKe.Dock = DockStyle.Fill;
             pnMain.Controls.Add(pageThongKe);
+
+            lblTongBanGhi.Text = GetNumberOfRecords("select count(mathu) from thu");
         }
 
         private void btnLienHe_Click(object sender, EventArgs e)

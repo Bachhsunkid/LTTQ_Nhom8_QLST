@@ -335,6 +335,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Image = global::Nhom8_BTL_QLST.Properties.Resources.next;
             this.button2.Location = new System.Drawing.Point(1307, 15);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -345,6 +346,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = global::Nhom8_BTL_QLST.Properties.Resources.previous;
             this.button1.Location = new System.Drawing.Point(1259, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -355,6 +357,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "10",
@@ -374,13 +377,14 @@
             this.lblTongBanGhi.AutoSize = true;
             this.lblTongBanGhi.Location = new System.Drawing.Point(165, 21);
             this.lblTongBanGhi.Name = "lblTongBanGhi";
-            this.lblTongBanGhi.Size = new System.Drawing.Size(35, 16);
+            this.lblTongBanGhi.Size = new System.Drawing.Size(26, 20);
             this.lblTongBanGhi.TabIndex = 0;
-            this.lblTongBanGhi.Text = "1024";
+            this.lblTongBanGhi.Text = "10";
             this.lblTongBanGhi.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(959, 22);
             this.label2.Name = "label2";
@@ -475,7 +479,7 @@
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Image = global::Nhom8_BTL_QLST.Properties.Resources.logout__1_;
             this.pictureBox11.Location = new System.Drawing.Point(60, 49);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(47, 37);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -488,7 +492,7 @@
             this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Image = global::Nhom8_BTL_QLST.Properties.Resources.user__2_;
             this.pictureBox9.Location = new System.Drawing.Point(8, 5);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(55, 44);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

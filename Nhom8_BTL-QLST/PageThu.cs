@@ -130,6 +130,8 @@ namespace Nhom8_BTL_QLST
             cbbLoaiThu2.Text = "";
             cbbKieuSinh2.Text = "";
             cbbNguonGoc2.Text = "";
+
+            LoadMaThu();
         }
 
         private void PageThu_Load_1(object sender, EventArgs e)
@@ -185,7 +187,6 @@ namespace Nhom8_BTL_QLST
 
             cbbChuong.Text = dgvDanhSachThu.CurrentRow.Cells[4].Value.ToString();
 
-            
             txtTenKH.Text = dgvDanhSachThu.CurrentRow.Cells[5].Value.ToString();
             txtTenTA.Text = dgvDanhSachThu.CurrentRow.Cells[6].Value.ToString();
 
