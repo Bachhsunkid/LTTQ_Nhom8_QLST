@@ -235,6 +235,8 @@ namespace Nhom8_BTL_QLST
             GetListCage();
             //Fill dữ liệu từ DB vào các combobox
             FillDataToCombobox();
+
+            txtMaChuong.Focus();
         }
 
         private void btnSua_Click(object sender, EventArgs e)

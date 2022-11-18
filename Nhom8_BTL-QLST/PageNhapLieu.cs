@@ -57,6 +57,8 @@ namespace Nhom8_BTL_QLST
             {
                 cbbMaTA.Items.Add(dataTable.Rows[i][0].ToString());
             }
+
+            comboBox1.Focus();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -107,6 +107,8 @@ namespace Nhom8_BTL_QLST
             //Fill dữ liệu từ DB vào các combobox
             FillDataToCombobox();
             LoadMaThu();
+
+            txtTenThu.Focus();
         }
 
 
@@ -535,6 +537,11 @@ namespace Nhom8_BTL_QLST
         }
 
         private void txtTuoiTho_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenTA_TextChanged(object sender, EventArgs e)
         {
 
         }

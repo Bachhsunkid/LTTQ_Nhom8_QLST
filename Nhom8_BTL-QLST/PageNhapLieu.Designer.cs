@@ -105,7 +105,7 @@
             this.txtGhiChu1.Multiline = true;
             this.txtGhiChu1.Name = "txtGhiChu1";
             this.txtGhiChu1.Size = new System.Drawing.Size(301, 63);
-            this.txtGhiChu1.TabIndex = 1;
+            this.txtGhiChu1.TabIndex = 4;
             // 
             // label3
             // 
@@ -121,7 +121,7 @@
             this.txtTenLoai.Location = new System.Drawing.Point(116, 75);
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(224, 22);
-            this.txtTenLoai.TabIndex = 1;
+            this.txtTenLoai.TabIndex = 3;
             // 
             // label2
             // 
@@ -138,7 +138,7 @@
             this.txtMaLoai.Location = new System.Drawing.Point(116, 34);
             this.txtMaLoai.Name = "txtMaLoai";
             this.txtMaLoai.Size = new System.Drawing.Size(224, 22);
-            this.txtMaLoai.TabIndex = 1;
+            this.txtMaLoai.TabIndex = 2;
             // 
             // label1
             // 
@@ -170,7 +170,7 @@
             this.txtGhiChu2.Multiline = true;
             this.txtGhiChu2.Name = "txtGhiChu2";
             this.txtGhiChu2.Size = new System.Drawing.Size(301, 63);
-            this.txtGhiChu2.TabIndex = 1;
+            this.txtGhiChu2.TabIndex = 7;
             // 
             // label4
             // 
@@ -186,7 +186,7 @@
             this.txtTenNG.Location = new System.Drawing.Point(116, 75);
             this.txtTenNG.Name = "txtTenNG";
             this.txtTenNG.Size = new System.Drawing.Size(224, 22);
-            this.txtTenNG.TabIndex = 1;
+            this.txtTenNG.TabIndex = 6;
             // 
             // label5
             // 
@@ -203,7 +203,7 @@
             this.txtMaNG.Location = new System.Drawing.Point(116, 34);
             this.txtMaNG.Name = "txtMaNG";
             this.txtMaNG.Size = new System.Drawing.Size(224, 22);
-            this.txtMaNG.TabIndex = 1;
+            this.txtMaNG.TabIndex = 5;
             // 
             // label6
             // 
@@ -232,7 +232,7 @@
             this.txtTenQue.Location = new System.Drawing.Point(468, 37);
             this.txtTenQue.Name = "txtTenQue";
             this.txtTenQue.Size = new System.Drawing.Size(301, 22);
-            this.txtTenQue.TabIndex = 1;
+            this.txtTenQue.TabIndex = 9;
             // 
             // t
             // 
@@ -248,7 +248,7 @@
             this.txtMaQue.Location = new System.Drawing.Point(116, 34);
             this.txtMaQue.Name = "txtMaQue";
             this.txtMaQue.Size = new System.Drawing.Size(224, 22);
-            this.txtMaQue.TabIndex = 1;
+            this.txtMaQue.TabIndex = 8;
             // 
             // label9
             // 
@@ -281,7 +281,7 @@
             this.txtDonVi.Location = new System.Drawing.Point(468, 75);
             this.txtDonVi.Name = "txtDonVi";
             this.txtDonVi.Size = new System.Drawing.Size(301, 22);
-            this.txtDonVi.TabIndex = 1;
+            this.txtDonVi.TabIndex = 13;
             this.txtDonVi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
             // 
             // txtTenTA
@@ -289,7 +289,7 @@
             this.txtTenTA.Location = new System.Drawing.Point(116, 75);
             this.txtTenTA.Name = "txtTenTA";
             this.txtTenTA.Size = new System.Drawing.Size(224, 22);
-            this.txtTenTA.TabIndex = 1;
+            this.txtTenTA.TabIndex = 11;
             // 
             // label16
             // 
@@ -314,7 +314,7 @@
             this.txtCongDung.Location = new System.Drawing.Point(468, 34);
             this.txtCongDung.Name = "txtCongDung";
             this.txtCongDung.Size = new System.Drawing.Size(301, 22);
-            this.txtCongDung.TabIndex = 1;
+            this.txtCongDung.TabIndex = 12;
             // 
             // label7
             // 
@@ -330,7 +330,7 @@
             this.txtMaTA.Location = new System.Drawing.Point(116, 34);
             this.txtMaTA.Name = "txtMaTA";
             this.txtMaTA.Size = new System.Drawing.Size(224, 22);
-            this.txtMaTA.TabIndex = 1;
+            this.txtMaTA.TabIndex = 10;
             // 
             // label11
             // 
@@ -364,7 +364,7 @@
             this.dtpNgayApDung.Location = new System.Drawing.Point(468, 76);
             this.dtpNgayApDung.Name = "dtpNgayApDung";
             this.dtpNgayApDung.Size = new System.Drawing.Size(125, 22);
-            this.dtpNgayApDung.TabIndex = 18;
+            this.dtpNgayApDung.TabIndex = 17;
             // 
             // cbbMaTA
             // 
@@ -372,7 +372,7 @@
             this.cbbMaTA.Location = new System.Drawing.Point(116, 74);
             this.cbbMaTA.Name = "cbbMaTA";
             this.cbbMaTA.Size = new System.Drawing.Size(223, 24);
-            this.cbbMaTA.TabIndex = 17;
+            this.cbbMaTA.TabIndex = 15;
             // 
             // label17
             // 
@@ -397,7 +397,7 @@
             this.txtDonGia.Location = new System.Drawing.Point(468, 35);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(301, 22);
-            this.txtDonGia.TabIndex = 1;
+            this.txtDonGia.TabIndex = 16;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox12_KeyPress);
             // 
             // label12
@@ -414,7 +414,7 @@
             this.txtMaGia.Location = new System.Drawing.Point(116, 34);
             this.txtMaGia.Name = "txtMaGia";
             this.txtMaGia.Size = new System.Drawing.Size(224, 22);
-            this.txtMaGia.TabIndex = 1;
+            this.txtMaGia.TabIndex = 14;
             // 
             // label14
             // 
@@ -442,7 +442,7 @@
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(85, 36);
-            this.btnThem.TabIndex = 12;
+            this.btnThem.TabIndex = 18;
             this.btnThem.Text = " Thêm";
             this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThem.UseVisualStyleBackColor = true;
@@ -456,7 +456,7 @@
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(85, 36);
-            this.btnXoa.TabIndex = 14;
+            this.btnXoa.TabIndex = 20;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -470,7 +470,7 @@
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(85, 36);
-            this.btnSua.TabIndex = 15;
+            this.btnSua.TabIndex = 19;
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.UseVisualStyleBackColor = true;
@@ -489,7 +489,7 @@
             this.comboBox1.Location = new System.Drawing.Point(134, 26);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(223, 24);
-            this.comboBox1.TabIndex = 16;
+            this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel1

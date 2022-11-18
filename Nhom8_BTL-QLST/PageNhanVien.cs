@@ -87,6 +87,8 @@ namespace Nhom8_BTL_QLST
             GetListEmployee();
             //Fill dữ liệu từ DB vào các combobox
             FillDataToCombobox();
+
+            txtMaNhanVien.Focus();
         }
 
         private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)

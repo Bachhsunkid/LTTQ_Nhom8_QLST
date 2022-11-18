@@ -113,7 +113,7 @@
             this.cbbMaChuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbMaChuong.Name = "cbbMaChuong";
             this.cbbMaChuong.Size = new System.Drawing.Size(176, 28);
-            this.cbbMaChuong.TabIndex = 11;
+            this.cbbMaChuong.TabIndex = 6;
             // 
             // label7
             // 
@@ -133,7 +133,7 @@
             this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(123, 36);
-            this.btnXuatExcel.TabIndex = 9;
+            this.btnXuatExcel.TabIndex = 10;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXuatExcel.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(85, 36);
-            this.btnXoa.TabIndex = 10;
+            this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(85, 36);
-            this.btnSua.TabIndex = 9;
+            this.btnSua.TabIndex = 8;
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(176, 27);
-            this.dtpNgaySinh.TabIndex = 8;
+            this.dtpNgaySinh.TabIndex = 4;
             // 
             // rdbKhac
             // 
@@ -182,7 +182,7 @@
             this.rdbKhac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbKhac.Name = "rdbKhac";
             this.rdbKhac.Size = new System.Drawing.Size(68, 24);
-            this.rdbKhac.TabIndex = 7;
+            this.rdbKhac.TabIndex = 5;
             this.rdbKhac.TabStop = true;
             this.rdbKhac.Text = "Khác";
             this.rdbKhac.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             this.rdbNu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbNu.Name = "rdbNu";
             this.rdbNu.Size = new System.Drawing.Size(51, 24);
-            this.rdbNu.TabIndex = 7;
+            this.rdbNu.TabIndex = 5;
             this.rdbNu.TabStop = true;
             this.rdbNu.Text = "Nữ";
             this.rdbNu.UseVisualStyleBackColor = true;
@@ -206,7 +206,7 @@
             this.rdbNam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbNam.Name = "rdbNam";
             this.rdbNam.Size = new System.Drawing.Size(65, 24);
-            this.rdbNam.TabIndex = 7;
+            this.rdbNam.TabIndex = 5;
             this.rdbNam.TabStop = true;
             this.rdbNam.Text = "Nam";
             this.rdbNam.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(85, 36);
-            this.btnThem.TabIndex = 2;
+            this.btnThem.TabIndex = 9;
             this.btnThem.Text = " Thêm";
             this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThem.UseVisualStyleBackColor = true;
@@ -272,7 +272,7 @@
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(279, 27);
-            this.txtSoDienThoai.TabIndex = 1;
+            this.txtSoDienThoai.TabIndex = 3;
             this.txtSoDienThoai.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // txtDiaChi
@@ -282,7 +282,7 @@
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(255, 75);
-            this.txtDiaChi.TabIndex = 1;
+            this.txtDiaChi.TabIndex = 7;
             // 
             // txtTenNhanVien
             // 
@@ -290,7 +290,7 @@
             this.txtTenNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(279, 27);
-            this.txtTenNhanVien.TabIndex = 1;
+            this.txtTenNhanVien.TabIndex = 2;
             this.txtTenNhanVien.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
