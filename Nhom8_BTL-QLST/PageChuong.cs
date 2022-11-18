@@ -301,22 +301,29 @@ namespace Nhom8_BTL_QLST
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            try
+            if(cbbThu.SelectedIndex==-1 || cbbNhanVien2.SelectedIndex == -1 || txtSoLuong.Text.Trim() == "")
             {
-                string maThu = cbbThu.Text;
-                string tenNhanVien = cbbNhanVien2.Text;
-                string soLuong = txtSoLuong.Text;
-
-                string query = "exec Proc_Chuong_filter N'" + maThu + "',N'" + tenNhanVien + "', '" + soLuong + "'";
-
-                DataTable dataTable = new DataTable();
-                dataTable = processDatabase.docBang(query);
-                dgvChuong.DataSource = dataTable;
-
+                MessageBox.Show("Bạn phải nhập đủ thông tin", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex);
+                try
+                {
+                    string maThu = cbbThu.Text;
+                    string tenNhanVien = cbbNhanVien2.Text;
+                    string soLuong = txtSoLuong.Text;
+
+                    string query = "exec Proc_Chuong_filter N'" + maThu + "',N'" + tenNhanVien + "', '" + soLuong + "'";
+
+                    DataTable dataTable = new DataTable();
+                    dataTable = processDatabase.docBang(query);
+                    dgvChuong.DataSource = dataTable;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
         }
 
@@ -324,5 +331,6 @@ namespace Nhom8_BTL_QLST
         {
 
         }
+
     }
 }

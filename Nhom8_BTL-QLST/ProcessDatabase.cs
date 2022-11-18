@@ -19,9 +19,9 @@ namespace Nhom8_BTL_QLST
 
         
         //Bach string connection
-        string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
+        //string strConn = "Data Source=DESKTOP-A8FKSRA\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
         //Ngoc string connection
-        //string strConn = "Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
+        string strConn = "Data Source=DESKTOP-9ATFPMT\\SQLEXPRESS;Initial Catalog=QLVuonThu;Integrated Security=True";
 
         public SqlConnection Conn { get => conn; set => conn = value; }
 

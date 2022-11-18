@@ -442,24 +442,32 @@ namespace Nhom8_BTL_QLST
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            try
+            if(cbbTenThu.SelectedIndex==-1 || cbbLoaiThu2.SelectedIndex == -1 || cbbKieuSinh2.SelectedIndex == -1 || cbbNguonGoc2.SelectedIndex == -1)
             {
-                string tenThu = cbbTenThu.Text;
-                string loaiThu = cbbLoaiThu2.Text;
-                string kieuSinh = cbbKieuSinh2.Text;
-                string nguonGoc = cbbNguonGoc2.Text;
-
-                string query = "exec Proc_Thu_filter N'" + tenThu + "',N'" + loaiThu + "',N'" + kieuSinh + "',N'" + nguonGoc + "'";
-
-                DataTable dataTable = new DataTable();
-                dataTable = processDatabase.docBang(query);
-                dgvDanhSachThu.DataSource = dataTable;
-
+                MessageBox.Show("Bạn phải nhập đủ thông tin", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                btnLamMoi_Click(null, null);
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex);
-            }
+                try
+                {
+                    string tenThu = cbbTenThu.Text;
+                    string loaiThu = cbbLoaiThu2.Text;
+                    string kieuSinh = cbbKieuSinh2.Text;
+                    string nguonGoc = cbbNguonGoc2.Text;
+
+                    string query = "exec Proc_Thu_filter N'" + tenThu + "',N'" + loaiThu + "',N'" + kieuSinh + "',N'" + nguonGoc + "'";
+
+                    DataTable dataTable = new DataTable();
+                    dataTable = processDatabase.docBang(query);
+                    dgvDanhSachThu.DataSource = dataTable;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }            
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)

@@ -203,6 +203,7 @@ namespace Nhom8_BTL_QLST
 
                 if (txtMathu1.Text.ToString().Trim() == "")
                 {
+                    dataGridView1.DataSource = db.docBang("select * from Thu");
                     int st;
                     foreach (DataRow row in db.docBang("select * from Thu").Rows)
                     {
@@ -238,6 +239,7 @@ namespace Nhom8_BTL_QLST
                 }
                 else if (txtMathu1.Text.ToString().Trim() != "")
                 {
+                    dataGridView1.DataSource = db.docBang("select * from Thu where mathu = N'" + txtMathu1.Text + "'");
                     if (db.docBang("select * from Thu where mathu = N'" + txtMathu1.Text.Trim() + "'").Rows.Count > 0)
                     {
                         int[] thang = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -307,7 +309,9 @@ namespace Nhom8_BTL_QLST
             chart1.Titles.Clear();
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker2.Value = DateTime.Now;
-
+            db.ketNoi();
+            resetDS();
+            db.dongKetNoi();
         }
 
         private void button7_Click(object sender, EventArgs e)
