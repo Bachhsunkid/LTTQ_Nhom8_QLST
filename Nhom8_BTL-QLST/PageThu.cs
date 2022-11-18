@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -442,13 +443,6 @@ namespace Nhom8_BTL_QLST
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            if(cbbTenThu.SelectedIndex==-1 || cbbLoaiThu2.SelectedIndex == -1 || cbbKieuSinh2.SelectedIndex == -1 || cbbNguonGoc2.SelectedIndex == -1)
-            {
-                MessageBox.Show("Bạn phải nhập đủ thông tin", "Lỗi", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
-                btnLamMoi_Click(null, null);
-            }
-            else
-            {
                 try
                 {
                     string tenThu = cbbTenThu.Text;
@@ -460,14 +454,18 @@ namespace Nhom8_BTL_QLST
 
                     DataTable dataTable = new DataTable();
                     dataTable = processDatabase.docBang(query);
-                    dgvDanhSachThu.DataSource = dataTable;
 
-                }
-                catch (Exception ex)
+                    dgvDanhSachThu.DataSource = dataTable;
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có thông tin bạn đang tìm kiếm");
+                    }
+
+            }
+            catch (Exception ex)
                 {
                     Console.WriteLine(ex);
-                }
-            }            
+                }          
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
